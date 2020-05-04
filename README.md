@@ -1,2 +1,2 @@
 # info-management
-Spring boot Repository to manage the information of Person profiles
+Spring boot REST Repository to manage the information of Person profiles
