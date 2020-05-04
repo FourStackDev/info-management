@@ -2,6 +2,14 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "address")
 public class Address implements Serializable {
 
 	/**
@@ -9,6 +17,8 @@ public class Address implements Serializable {
 	 */
 	private static final long serialVersionUID = -688044435676223483L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String doorNo;
 	private String addressLine1;
