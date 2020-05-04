@@ -6,16 +6,18 @@ import java.util.List;
 import org.fourstack.infomanagement.models.AppInfo;
 import org.fourstack.infomanagement.models.EndpointsDescription;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AppInfoService {
 	
-	@Value("$app.name")
+	@Value("${app.name}")
 	private String applicationName;
 	
-	@Value("$app.version")
+	@Value("${app.version}")
 	private String applicationVersion;
 	
-	@Value("$app.description")
+	@Value("${app.description}")
 	private String applicationDescription;
 	
 	public AppInfo getApplicationDetails() {

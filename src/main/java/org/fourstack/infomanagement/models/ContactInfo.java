@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Class <b><i>ContactInfo</i></b> is an Entity model of the application. <br/>
  * It is a sub entity for the Person Entity. This entity stores the contact
@@ -34,12 +36,15 @@ public class ContactInfo implements Serializable {
 	private Long id;
 
 	@Column(name = "primary_contact_number")
+	@JsonProperty(value = "prim_contact_num")
 	private String primaryContactNum;
 
 	@Column(name = "secondary_contact_number")
+	@JsonProperty(value = "sec_contact_num")
 	private String secondaryContactNum;
 
 	@Column(name = "mailId")
+	@JsonProperty(value = "mail_id")
 	private String mailId;
 
 	/**
