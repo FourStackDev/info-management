@@ -11,6 +11,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Class <b><i>Address</i></b> is an Entity model of the application.<br/>
+ * It is a sub entity for the Person Entity. This entity stores the address of
+ * the Person Object
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "address")
 public class Address implements Serializable {
@@ -23,31 +31,31 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "door_num")
 	@JsonProperty(value = "door_number")
 	private String doorNo;
-	
+
 	@Column(name = "address_line1", columnDefinition = "TEXT")
 	@JsonProperty(value = "addressLine1")
 	private String addressLine1;
-	
+
 	@Column(name = "address_line2", columnDefinition = "TEXT")
 	@JsonProperty(value = "addressLine2")
 	private String addressLine2;
-	
+
 	@Column(name = "ditrict")
 	@JsonProperty(value = "ditrict")
 	private String district;
-	
+
 	@Column(name = "state")
 	@JsonProperty(value = "state")
 	private String state;
-	
+
 	@Column(name = "country")
 	@JsonProperty(value = "country")
 	private String country;
-	
+
 	@Column(name = "pincode")
 	@JsonProperty(value = "pincode")
 	private String pincode;
