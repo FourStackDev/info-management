@@ -9,7 +9,7 @@ public class ContactInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = -914363100778675068L;
 
-	private long id;
+	private Long id;
 	private String primaryContactNum;
 	private String secondaryContactNum;
 	private String mailId;
@@ -32,11 +32,11 @@ public class ContactInfo implements Serializable {
 		this.mailId = mailId;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,7 +66,7 @@ public class ContactInfo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ContactInfo [id=" + id + ", primaryContactNum=" + primaryContactNum + ", secondaryContactNum="
+		return "ContactInfo [primaryContactNum=" + primaryContactNum + ", secondaryContactNum="
 				+ secondaryContactNum + ", mailId=" + mailId + "]";
 	}
 }
