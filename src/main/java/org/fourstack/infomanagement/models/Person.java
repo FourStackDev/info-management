@@ -10,7 +10,7 @@ public class Person implements Serializable {
 	 */
 	private static final long serialVersionUID = 4900756725622318846L;
 
-	private long id;
+	private Long id;
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -21,6 +21,8 @@ public class Person implements Serializable {
 	private boolean maritalStatus;
 
 	private ContactInfo contactInfo;
+
+	private Address address;
 
 	/**
 	 * No argument Constructor. It is needed for the JPA transactions
@@ -53,11 +55,11 @@ public class Person implements Serializable {
 		this.maritalStatus = maritalStatus;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -133,10 +135,19 @@ public class Person implements Serializable {
 		this.contactInfo = contactInfo;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+		return "Person [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
 				+ ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", fatherName=" + fatherName + ", motherName="
-				+ motherName + ", maritalStatus=" + maritalStatus + ", contactInfo=" + contactInfo + "]";
+				+ motherName + ", maritalStatus=" + maritalStatus + ", contactInfo=" + contactInfo + ", address="
+				+ address + "]";
 	}
 }
