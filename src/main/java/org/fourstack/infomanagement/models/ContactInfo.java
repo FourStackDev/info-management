@@ -2,6 +2,26 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+/**
+ * Class <b><i>ContactInfo</i></b> is an Entity model of the application. <br/>
+ * It is a sub entity for the Person Entity. This entity stores the contact
+ * information of the Person. It has 2 unique constraint columns (primary
+ * Contact number and mailId)
+ * 
+ * @author Manjunath_HM
+ *
+ */
+@Entity
+@Table(name = "contact_info", uniqueConstraints = { @UniqueConstraint(columnNames = "primary_contact_number"),
+		@UniqueConstraint(columnNames = "mailId") })
 public class ContactInfo implements Serializable {
 
 	/**
@@ -9,9 +29,17 @@ public class ContactInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = -914363100778675068L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "primary_contact_number")
 	private String primaryContactNum;
+
+	@Column(name = "secondary_contact_number")
 	private String secondaryContactNum;
+
+	@Column(name = "mailId")
 	private String mailId;
 
 	/**
@@ -66,7 +94,7 @@ public class ContactInfo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ContactInfo [primaryContactNum=" + primaryContactNum + ", secondaryContactNum="
-				+ secondaryContactNum + ", mailId=" + mailId + "]";
+		return "ContactInfo [primaryContactNum=" + primaryContactNum + ", secondaryContactNum=" + secondaryContactNum
+				+ ", mailId=" + mailId + "]";
 	}
 }

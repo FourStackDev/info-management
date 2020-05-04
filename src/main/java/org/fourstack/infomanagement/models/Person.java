@@ -3,6 +3,15 @@ package org.fourstack.infomanagement.models;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "person")
 public class Person implements Serializable {
 
 	/**
@@ -10,6 +19,8 @@ public class Person implements Serializable {
 	 */
 	private static final long serialVersionUID = 4900756725622318846L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
 	private String middleName;
@@ -20,8 +31,10 @@ public class Person implements Serializable {
 	private String motherName;
 	private boolean maritalStatus;
 
+	@OneToOne
 	private ContactInfo contactInfo;
 
+	@OneToOne
 	private Address address;
 
 	/**
