@@ -14,6 +14,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Class <b><i>Person</i></b> is an Entity Model of the Application.<br/>
+ * It stores the Person Object information and also manages the Sub
+ * models(Address, ContactInfo) information
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "person")
 public class Person implements Serializable {
@@ -26,35 +34,35 @@ public class Person implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "firstname")
 	@JsonProperty(value = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "middlename")
 	@JsonProperty(value = "middle_name")
 	private String middleName;
-	
+
 	@Column(name = "lastname")
 	@JsonProperty(value = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "date_of_birth")
 	@JsonProperty(value = "birth_date")
 	private LocalDate dateOfBirth;
-	
+
 	@Column(name = "gender")
 	@JsonProperty(value = "gender")
 	private String gender;
-	
+
 	@Column(name = "fathername")
 	@JsonProperty(value = "father_name")
 	private String fatherName;
-	
-	@Column(name ="mothername")
+
+	@Column(name = "mothername")
 	@JsonProperty(value = "mother_name")
 	private String motherName;
-	
+
 	@Column(name = "isMarried")
 	@JsonProperty(value = "isMarried")
 	private boolean maritalStatus;
