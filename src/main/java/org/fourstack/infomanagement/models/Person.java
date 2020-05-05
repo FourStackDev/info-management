@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -72,11 +73,21 @@ public class Person implements Serializable {
 	@JsonProperty(value = "marital_status")
 	private MaritalStatus maritalStatus;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = {
+			CascadeType.MERGE,
+			CascadeType.REFRESH,
+			CascadeType.PERSIST,
+			CascadeType.REMOVE
+	})
 	@JsonProperty(value = "contact_information")
 	private ContactInfo contactInfo;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = {
+			CascadeType.MERGE,
+			CascadeType.REFRESH,
+			CascadeType.PERSIST,
+			CascadeType.REMOVE
+	})
 	@JsonProperty(value = "address")
 	private Address address;
 
