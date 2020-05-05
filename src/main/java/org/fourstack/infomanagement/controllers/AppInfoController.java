@@ -4,6 +4,8 @@ import org.fourstack.infomanagement.config.BasePath;
 import org.fourstack.infomanagement.models.AppInfo;
 import org.fourstack.infomanagement.services.AppInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +25,7 @@ public class AppInfoController {
 	private AppInfoService service;
 
 	@GetMapping("/info")
-	public AppInfo getAppInfo() {
-		return service.getApplicationDetails();
+	public ResponseEntity<AppInfo> getAppInfo() {		
+		return new ResponseEntity<AppInfo>(service.getApplicationDetails(), HttpStatus.OK);
 	}
 }
