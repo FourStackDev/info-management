@@ -6,11 +6,15 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.fourstack.infomanagement.codetype.MaritalStatus;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -64,8 +68,9 @@ public class Person implements Serializable {
 	private String motherName;
 
 	@Column(name = "marital_status")
+	@Enumerated(EnumType.STRING)
 	@JsonProperty(value = "marital_status")
-	private String maritalStatus;
+	private MaritalStatus maritalStatus;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JsonProperty(value = "contact_information")
@@ -94,7 +99,7 @@ public class Person implements Serializable {
 	 * @param maritalStatus
 	 */
 	public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth, String gender,
-			String fatherName, String motherName, String maritalStatus) {
+			String fatherName, String motherName, MaritalStatus maritalStatus) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -170,11 +175,11 @@ public class Person implements Serializable {
 		this.motherName = motherName;
 	}
 
-	public String isMaritalStatus() {
+	public MaritalStatus isMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 

@@ -2,6 +2,8 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 
+import org.fourstack.infomanagement.codetype.Proficiency;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Language implements Serializable{
@@ -13,6 +15,6 @@ public class Language implements Serializable{
 	
 	@JsonProperty(value = "language_name")
 	private String name;
-	private String proficiency;
+	private Proficiency proficiency;
 
 }

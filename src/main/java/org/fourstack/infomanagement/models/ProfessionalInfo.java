@@ -16,6 +16,6 @@ public class ProfessionalInfo implements Serializable {
 	private int totalExperience; // stored as months
 	private int relevantExperience; // stored as months
 	private String currentOrganization;
-	
+	private String designation;
 
 }
