@@ -63,9 +63,9 @@ public class Person implements Serializable {
 	@JsonProperty(value = "mother_name")
 	private String motherName;
 
-	@Column(name = "isMarried")
-	@JsonProperty(value = "isMarried")
-	private boolean maritalStatus;
+	@Column(name = "marital_status")
+	@JsonProperty(value = "marital_status")
+	private String maritalStatus;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JsonProperty(value = "contact_information")
@@ -94,7 +94,7 @@ public class Person implements Serializable {
 	 * @param maritalStatus
 	 */
 	public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth, String gender,
-			String fatherName, String motherName, boolean maritalStatus) {
+			String fatherName, String motherName, String maritalStatus) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -170,11 +170,11 @@ public class Person implements Serializable {
 		this.motherName = motherName;
 	}
 
-	public boolean isMaritalStatus() {
+	public String isMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(boolean maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 
