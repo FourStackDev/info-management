@@ -16,11 +16,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.fourstack.infomanagement.codetype.GenderType;
 import org.fourstack.infomanagement.codetype.MaritalStatus;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -65,8 +65,9 @@ public class Person implements Serializable {
 	private LocalDate dateOfBirth;
 
 	@Column(name = "gender")
+	@Enumerated(EnumType.STRING)
 	@JsonProperty(value = "gender")
-	private String gender;
+	private GenderType gender;
 
 	@Column(name = "fathername")
 	@JsonProperty(value = "father_name")
@@ -129,7 +130,7 @@ public class Person implements Serializable {
 	 * @param motherName
 	 * @param maritalStatus
 	 */
-	public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth, String gender,
+	public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth, GenderType gender,
 			String fatherName, String motherName, MaritalStatus maritalStatus) {
 		super();
 		this.firstName = firstName;
@@ -182,11 +183,11 @@ public class Person implements Serializable {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getGender() {
+	public GenderType getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(GenderType gender) {
 		this.gender = gender;
 	}
 
