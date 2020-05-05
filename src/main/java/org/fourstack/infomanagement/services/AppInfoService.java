@@ -3,6 +3,7 @@ package org.fourstack.infomanagement.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.fourstack.infomanagement.codetype.MethodType;
 import org.fourstack.infomanagement.models.AppInfo;
 import org.fourstack.infomanagement.models.EndpointsDescription;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +35,7 @@ public class AppInfoService {
 	public List<EndpointsDescription> getEndPointsDetails() {
 		List<EndpointsDescription> endPoints = new ArrayList<>();
 		
-		endPoints.add(new EndpointsDescription("@GET", "/info-management/api", "Base path of the application"));
+		endPoints.add(new EndpointsDescription(MethodType.GET, "/info-management/api", "Base path of the application"));
 		
 		return endPoints;
 	}

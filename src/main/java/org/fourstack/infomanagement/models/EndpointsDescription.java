@@ -2,6 +2,8 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 
+import org.fourstack.infomanagement.codetype.MethodType;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EndpointsDescription implements Serializable {
@@ -12,7 +14,7 @@ public class EndpointsDescription implements Serializable {
 	private static final long serialVersionUID = -5721101075901998730L;
 
 	@JsonProperty(value = "method_type")
-	private String _method;
+	private MethodType _method;
 	
 	@JsonProperty(value = "end_uri")
 	private String _uri;
@@ -33,18 +35,18 @@ public class EndpointsDescription implements Serializable {
 	 * @param _uri
 	 * @param _description
 	 */
-	public EndpointsDescription(String _method, String _uri, String _description) {
+	public EndpointsDescription(MethodType _method, String _uri, String _description) {
 		super();
 		this._method = _method;
 		this._uri = _uri;
 		this._description = _description;
 	}
 
-	public String get_method() {
+	public MethodType get_method() {
 		return _method;
 	}
 
-	public void set_method(String _method) {
+	public void set_method(MethodType _method) {
 		this._method = _method;
 	}
 
