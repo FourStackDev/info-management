@@ -2,6 +2,7 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,7 +17,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.fourstack.infomanagement.codetype.MaritalStatus;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -52,6 +58,8 @@ public class Person implements Serializable {
 	@JsonProperty(value = "last_name")
 	private String lastName;
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@JsonFormat(pattern = "yyyy/MM/dd")
 	@Column(name = "date_of_birth")
 	@JsonProperty(value = "birth_date")
 	private LocalDate dateOfBirth;
@@ -90,6 +98,18 @@ public class Person implements Serializable {
 	})
 	@JsonProperty(value = "address")
 	private Address address;
+	
+	/**
+	 * createDateTime and updateDateTime columns are used to track the insertion and
+	 * updation of Entities at database level
+	 */
+	@CreationTimestamp
+	@Column(name = "created_date", nullable = false, updatable = false)
+	private LocalDateTime createDateTime;
+	
+	@UpdateTimestamp
+	@Column(name = "updated_date", nullable = false, updatable = true)
+	private LocalDateTime updateDateTime;
 
 	/**
 	 * No argument Constructor. It is needed for the JPA transactions
