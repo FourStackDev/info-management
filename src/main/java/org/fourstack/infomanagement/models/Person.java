@@ -3,6 +3,7 @@ package org.fourstack.infomanagement.models;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -99,6 +102,17 @@ public class Person implements Serializable {
 	})
 	@JsonProperty(value = "address")
 	private Address address;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = {
+			CascadeType.MERGE,
+			CascadeType.REFRESH,
+			CascadeType.PERSIST,
+			CascadeType.REMOVE,
+			CascadeType.DETACH
+	}, orphanRemoval = true)
+	@JoinColumn(name = "person_id")
+	@JsonProperty(value = "languages")
+	private List<Language> languages;
 	
 	/**
 	 * createDateTime and updateDateTime columns are used to track the insertion and
@@ -207,10 +221,10 @@ public class Person implements Serializable {
 		this.motherName = motherName;
 	}
 
-	public MaritalStatus isMaritalStatus() {
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
-
+	
 	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
@@ -229,6 +243,14 @@ public class Person implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public List<Language> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
 	}
 
 	@Override
