@@ -2,12 +2,15 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -43,6 +46,22 @@ public class ProfessionalInfo implements Serializable {
 	@JsonProperty(value = "designation")
 	@Column(name = "designation")
 	private String designation;
+	
+	/*
+	 * ****************************************************************************
+	 * ************* Start of Mapping columns with other Entities *****************
+	 * ****************************************************************************
+	 */
+	@OneToMany
+	@JoinColumn(name = "professional_id")
+	@JsonProperty(value = "education_details")
+	private List<EducationDetail> educationalDetails;
+
+	/*
+	 * ****************************************************************************
+	 * ************* End of Mapping columns with other Entities *******************
+	 * ****************************************************************************
+	 */
 
 	/**
 	 * createDateTime and updateDateTime columns are used to track the insertion and
@@ -116,5 +135,13 @@ public class ProfessionalInfo implements Serializable {
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
+	}
+
+	public List<EducationDetail> getEducationalDetails() {
+		return educationalDetails;
+	}
+
+	public void setEducationalDetails(List<EducationDetail> educationalDetails) {
+		this.educationalDetails = educationalDetails;
 	}
 }
