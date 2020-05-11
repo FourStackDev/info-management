@@ -1,8 +1,10 @@
 package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.fourstack.infomanagement.codetype.FluencyType;
 import org.fourstack.infomanagement.codetype.Proficiency;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,22 +49,29 @@ public class Language implements Serializable {
 	@JsonProperty(value  = "proficiency")
 	private Proficiency proficiency;
 	
+	@Column(name = "fluency")
+	@ElementCollection
+	@Enumerated(EnumType.STRING)
+	@JsonProperty(value = "fluency")
+	private List<FluencyType> fluency;
+	
 	/**
 	 * No argument Constructor
 	 */
 	public Language() {
 	}
-
+	
 	/**
 	 * Parameterized constructor to initialize the Language Object
-	 * 
+	 *
 	 * @param name
 	 * @param proficiency
+	 * @param fluency
 	 */
-	public Language(String name, Proficiency proficiency) {
-		super();
+	public Language(String name, Proficiency proficiency, List<FluencyType> fluency) {
 		this.name = name;
 		this.proficiency = proficiency;
+		this.fluency = fluency;
 	}
 
 	public Long getId() {
@@ -88,8 +98,16 @@ public class Language implements Serializable {
 		this.proficiency = proficiency;
 	}
 
+	public List<FluencyType> getFluency() {
+		return fluency;
+	}
+
+	public void setFluency(List<FluencyType> fluency) {
+		this.fluency = fluency;
+	}
+
 	@Override
 	public String toString() {
-		return "Language [name=" + name + ", proficiency=" + proficiency + "]";
+		return "Language [name=" + name + ", proficiency=" + proficiency + ", fluency=" + fluency + "]";
 	}
 }
