@@ -54,6 +54,10 @@ public class ProfessionalInfo implements Serializable {
 	 * ************* Start of Mapping columns with other Entities *****************
 	 * ****************************************************************************
 	 */
+	/**
+	 * educationalDetails is mapped by using @OneToMany with Unidirectional.
+	 * Education_details table will maintain the professional_id for mapping.
+	 */
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.PERSIST,
 			CascadeType.MERGE,
@@ -64,6 +68,15 @@ public class ProfessionalInfo implements Serializable {
 	@JoinColumn(name = "professional_id")
 	@JsonProperty(value = "education_details")
 	private List<EducationDetail> educationalDetails;
+	
+	/**
+	 * professionalSkills is mapped by using @OneToMany with Unidirectional.
+	 * Professional_skills table will maintain the professional_id for mapping.
+	 */
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "professional_id")
+	@JsonProperty(value = "professional_skills")
+	private List<ProfessionalSkill> professionalSkills;
 
 	/*
 	 * ****************************************************************************
@@ -151,5 +164,13 @@ public class ProfessionalInfo implements Serializable {
 
 	public void setEducationalDetails(List<EducationDetail> educationalDetails) {
 		this.educationalDetails = educationalDetails;
+	}
+
+	public List<ProfessionalSkill> getProfessionalSkills() {
+		return professionalSkills;
+	}
+
+	public void setProfessionalSkills(List<ProfessionalSkill> professionalSkills) {
+		this.professionalSkills = professionalSkills;
 	}
 }
