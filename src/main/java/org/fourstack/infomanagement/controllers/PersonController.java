@@ -2,7 +2,7 @@ package org.fourstack.infomanagement.controllers;
 
 import java.util.List;
 
-import org.fourstack.infomanagement.config.BasePath;
+import org.fourstack.infomanagement.annotations.BasePath;
 import org.fourstack.infomanagement.models.Person;
 import org.fourstack.infomanagement.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
