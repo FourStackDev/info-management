@@ -1,4 +1,4 @@
-package org.fourstack.infomanagement.config;
+package org.fourstack.infomanagement.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

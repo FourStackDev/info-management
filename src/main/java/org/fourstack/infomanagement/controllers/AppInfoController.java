@@ -1,6 +1,6 @@
 package org.fourstack.infomanagement.controllers;
 
-import org.fourstack.infomanagement.config.BasePath;
+import org.fourstack.infomanagement.annotations.BasePath;
 import org.fourstack.infomanagement.models.AppInfo;
 import org.fourstack.infomanagement.services.AppInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
