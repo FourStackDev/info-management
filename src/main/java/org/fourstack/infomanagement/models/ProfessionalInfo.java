@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,7 +54,13 @@ public class ProfessionalInfo implements Serializable {
 	 * ************* Start of Mapping columns with other Entities *****************
 	 * ****************************************************************************
 	 */
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE,
+			CascadeType.REFRESH,
+			CascadeType.REMOVE,
+			CascadeType.DETACH
+	}, orphanRemoval = true)
 	@JoinColumn(name = "professional_id")
 	@JsonProperty(value = "education_details")
 	private List<EducationDetail> educationalDetails;

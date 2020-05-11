@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,10 @@ public class EducationDetail implements Serializable {
 	@JsonProperty(value = "university_name")
 	@Column(name = "university")
 	private String universityName;
+	
+	@JsonProperty(value = "college_name")
+	@Column(name = "collge")
+	private String collgeName;
 
 	@JsonProperty(value = "course_name")
 	@Column(name = "course")
@@ -39,6 +45,7 @@ public class EducationDetail implements Serializable {
 	private String passOutYear;
 
 	@JsonProperty(value = "course_type")
+	@Enumerated(EnumType.STRING)
 	@Column(name = "course_type")
 	private CourseType courseType;
 
@@ -47,17 +54,20 @@ public class EducationDetail implements Serializable {
 	 */
 	public EducationDetail() {
 	}
-
+	
 	/**
 	 * Parameterized constructor to initialize the EducationDetail Entity
 	 * 
 	 * @param universityName Name of the University
+	 * @param collgeName     Name of the College
 	 * @param courseName     Name of Course/Degree
 	 * @param passOutYear    Year of passed out
 	 * @param courseType     Type of Course (Full time/ part time / Correspondence)
 	 */
-	public EducationDetail(String universityName, String courseName, String passOutYear, CourseType courseType) {
+	public EducationDetail(String universityName, String collgeName, String courseName, String passOutYear,
+			CourseType courseType) {
 		this.universityName = universityName;
+		this.collgeName = collgeName;
 		this.courseName = courseName;
 		this.passOutYear = passOutYear;
 		this.courseType = courseType;
@@ -101,5 +111,19 @@ public class EducationDetail implements Serializable {
 
 	public void setCourseType(CourseType courseType) {
 		this.courseType = courseType;
+	}
+
+	public String getCollgeName() {
+		return collgeName;
+	}
+
+	public void setCollgeName(String collgeName) {
+		this.collgeName = collgeName;
+	}
+
+	@Override
+	public String toString() {
+		return "EducationDetail [universityName=" + universityName + ", collgeName=" + collgeName + ", courseName="
+				+ courseName + ", passOutYear=" + passOutYear + ", courseType=" + courseType + "]";
 	}
 }
