@@ -20,6 +20,21 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Class <b><i>ProfessionalInfo</i></b> is an Entity Class to maintain the
+ * Professional Information related to Person.
+ * <p>
+ * The sub entities of ProfessionalInfo are :
+ * <ul>
+ * <li>ProfessionalSkill</li>
+ * <li>WorkExperience</li>
+ * <li>Education</li>
+ * </ul>
+ * </p>
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "professional_info")
 public class ProfessionalInfo implements Serializable {
