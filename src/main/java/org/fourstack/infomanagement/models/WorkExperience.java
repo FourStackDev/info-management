@@ -21,6 +21,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entity Class to handle the Work Experience related to a Person.<br/>
+ * It is a sub entity class for Professional Info
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "work_experience")
 public class WorkExperience implements Serializable {
@@ -34,7 +41,7 @@ public class WorkExperience implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "organization_name")
+	@Column(name = "organization_name", nullable = false)
 	@JsonProperty(value = "company_name")
 	private String organizationName;
 	

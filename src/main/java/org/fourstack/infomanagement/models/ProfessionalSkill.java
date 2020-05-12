@@ -15,6 +15,13 @@ import org.fourstack.infomanagement.codetype.Proficiency;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entity Class to maintain the Professional skills of a Person.<br/>
+ * It is a sub entity of ProfessionalInfo.
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "professional_skills")
 public class ProfessionalSkill implements Serializable {

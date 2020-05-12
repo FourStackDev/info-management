@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 /*
- * Class ErrorResponse is made Entity class to store the exceptions raised by
+ * Class ErrorResponse is made as Entity class to store the exceptions raised by
  * the application.
  */
 @Entity

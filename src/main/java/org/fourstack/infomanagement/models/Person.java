@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Class <b><i>Person</i></b> is an Entity Model of the Application.<br/>
  * It stores the Person Object information and also manages the Sub
- * models(Address, ContactInfo) information
+ * models(Address, ContactInfo, Language) information
  * 
  * @author Manjunath_HM
  *
@@ -50,7 +50,7 @@ public class Person implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "firstname")
+	@Column(name = "firstname", nullable = false)
 	@JsonProperty(value = "first_name")
 	private String firstName;
 
@@ -58,17 +58,17 @@ public class Person implements Serializable {
 	@JsonProperty(value = "middle_name")
 	private String middleName;
 
-	@Column(name = "lastname")
+	@Column(name = "lastname", nullable = false)
 	@JsonProperty(value = "last_name")
 	private String lastName;
 
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@JsonFormat(pattern = "yyyy/MM/dd")
-	@Column(name = "date_of_birth")
+	@Column(name = "date_of_birth", nullable = false)
 	@JsonProperty(value = "birth_date")
 	private LocalDate dateOfBirth;
 
-	@Column(name = "gender")
+	@Column(name = "gender", nullable = false)
 	@Enumerated(EnumType.STRING)
 	@JsonProperty(value = "gender")
 	private GenderType gender;

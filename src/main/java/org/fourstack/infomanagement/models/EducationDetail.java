@@ -15,6 +15,13 @@ import org.fourstack.infomanagement.codetype.CourseType;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entity Class to maintain Educational Details of Person.<br/>
+ * It is a sub entity of ProfesionalInfo
+ * 
+ * @author Manjunath_HM
+ *
+ */
 @Entity
 @Table(name = "education_details")
 public class EducationDetail implements Serializable {
