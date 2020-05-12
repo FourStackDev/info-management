@@ -3,6 +3,7 @@ package org.fourstack.infomanagement.payload;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Manjunath_HM
  *
  */
-
+/*
+ * Class ErrorResponse is made Entity class to store the exceptions raised by
+ * the application.
+ */
+@Entity
+@Table(name = "error_responses")
 public class ErrorResponse implements Serializable {
 
 	/**
@@ -30,27 +36,39 @@ public class ErrorResponse implements Serializable {
 	 */
 	private static final long serialVersionUID = 1194886948518745808L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "custom_error_code")
 	@JsonProperty("custom_err_code")
 	private CustErrCodesAndMsgs customErrorCode;
 
+	@Column(name = "custom_error_message")
 	@JsonProperty("custom_err_msg")
 	private CustErrCodesAndMsgs customErrorMsg;
 
+	@Column(name = "custom_error_description")
 	@JsonProperty("custom_err_desc")
 	private String customErrorDescription;
 
+	@Column(name = "errorcode")
 	@JsonProperty("error_code")
 	private int errorCode;
 
+	@Column(name = "error_message")
 	@JsonProperty("error_msg")
 	private String errorMsg;
 
+	@Column(name = "http_status")
 	@JsonProperty("http_status")
 	private HttpStatus status;
 
+	@Column(name = "uri_details")
 	@JsonProperty("uri_details")
 	private String urlDetails;
 
+	@Column(name = "error_timestamp")
 	@JsonProperty("timestamp")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss.SSS")
 	private LocalDateTime timeStamp;
@@ -85,6 +103,14 @@ public class ErrorResponse implements Serializable {
 		this.status = status;
 		this.urlDetails = urlDetails;
 		this.timeStamp = timeStamp;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public CustErrCodesAndMsgs getCustomErrorCode() {
