@@ -31,13 +31,17 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
 	@Override
 	public ProjectDetail saveProjectDetail(ProjectDetail projectDetail) {
-		List<Technology> technologies = projectDetail.getTechnologies();
-		technologies = technologyService.saveTechnologiesBasedOnNameAndVersion(technologies);
-		
-		//before adding the technologies, clear the existing list
-		projectDetail.getTechnologies().clear();
-		projectDetail.getTechnologies().addAll(technologies);
-		return projectDetailRepository.save(projectDetail);
+		if (projectDetail != null) {
+			List<Technology> technologies = projectDetail.getTechnologies();
+			technologies = technologyService.saveTechnologiesBasedOnNameAndVersion(technologies);
+
+			// before adding the technologies, clear the existing list
+			projectDetail.getTechnologies().clear();
+			projectDetail.getTechnologies().addAll(technologies);
+			return projectDetailRepository.save(projectDetail);
+		} else
+			return projectDetailRepository.save(projectDetail);
+
 	}
 
 }
