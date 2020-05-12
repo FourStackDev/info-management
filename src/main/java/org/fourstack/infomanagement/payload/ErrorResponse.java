@@ -48,7 +48,7 @@ public class ErrorResponse implements Serializable {
 	@JsonProperty("custom_err_msg")
 	private CustErrCodesAndMsgs customErrorMsg;
 
-	@Column(name = "custom_error_description")
+	@Column(name = "custom_error_description", columnDefinition = "TEXT")
 	@JsonProperty("custom_err_desc")
 	private String customErrorDescription;
 
@@ -56,7 +56,7 @@ public class ErrorResponse implements Serializable {
 	@JsonProperty("error_code")
 	private int errorCode;
 
-	@Column(name = "error_message")
+	@Column(name = "error_message", columnDefinition = "TEXT")
 	@JsonProperty("error_msg")
 	private String errorMsg;
 

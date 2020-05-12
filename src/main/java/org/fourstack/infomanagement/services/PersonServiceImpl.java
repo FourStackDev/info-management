@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.fourstack.infomanagement.models.Address;
 import org.fourstack.infomanagement.models.ContactInfo;
+import org.fourstack.infomanagement.models.Language;
 import org.fourstack.infomanagement.models.Person;
 import org.fourstack.infomanagement.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class PersonServiceImpl implements PersonService {
 	
 	@Autowired
 	private ContactInfoService contactInfoService;
+	
+	@Autowired
+	private LanguageService languageService;
 	
 	@Override
 	public List<Person> getPersons() {
@@ -40,8 +44,16 @@ public class PersonServiceImpl implements PersonService {
 			address = addressService.saveAddress(person.getAddress());
 			person.setAddress(address);
 		}
-		
-		return personRepository.save(person);
+
+		if (person.getLanguages() != null) {
+			List<Language> languages = person.getLanguages();
+			languages = languageService.saveAllLanguages(languages);
+
+			person.getLanguages().clear();
+			person.getLanguages().addAll(languages);
+		}
+
+		return person = personRepository.save(person);
 	}
 
 }
