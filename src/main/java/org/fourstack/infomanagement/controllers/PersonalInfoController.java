@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @BasePath
-public class PersonController {
+public class PersonalInfoController {
 	
 	@Autowired
 	private PersonService personService;
