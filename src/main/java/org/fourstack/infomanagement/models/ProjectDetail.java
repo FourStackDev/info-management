@@ -150,4 +150,10 @@ public class ProjectDetail implements Serializable{
 	public void setTechnologies(List<Technology> technologies) {
 		this.technologies = technologies;
 	}
+
+	@Override
+	public String toString() {
+		return "ProjectDetail [projectName=" + projectName + ", teamSize=" + teamSize + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", description=" + description + ", technologies=" + technologies + "]";
+	}
 }
