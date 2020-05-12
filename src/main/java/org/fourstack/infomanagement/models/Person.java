@@ -3,6 +3,7 @@ package org.fourstack.infomanagement.models;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -107,12 +108,11 @@ public class Person implements Serializable {
 			CascadeType.MERGE,
 			CascadeType.REFRESH,
 			CascadeType.PERSIST,
-			CascadeType.REMOVE,
-			CascadeType.DETACH
+			CascadeType.REMOVE
 	}, orphanRemoval = true)
 	@JoinColumn(name = "person_id")
 	@JsonProperty(value = "languages")
-	private List<Language> languages;
+	private List<Language> languages = new ArrayList<>();
 	
 	/**
 	 * createDateTime and updateDateTime columns are used to track the insertion and
