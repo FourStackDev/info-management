@@ -32,7 +32,7 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public List<Person> getPersons() {
 		List<Person> personList = personRepository.findAll();
-		if (personList != null)
+		if (personList != null && !personList.isEmpty())
 			return personList;
 		else
 			throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty List");
@@ -73,7 +73,11 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public List<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName) {
-		return null;
+		List<Person> personList = personRepository.findByFirstNameAndLastName(firstName, lastName);
+		if (personList != null && !personList.isEmpty())
+			return personList;
+		else
+			throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty List");
 	}
 
 	/**
