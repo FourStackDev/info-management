@@ -21,12 +21,13 @@ public class PersonalInfoController {
 	private PersonService personService;
 	
 	@GetMapping("/persons")
-	public List<Person> getPersonsList() {
-		return personService.getPersons();
+	public ResponseEntity<List<Person>> getPersonsList() {
+		return new ResponseEntity<List<Person>>(personService.getPersons(), HttpStatus.OK);
 	}
 	
 	@PostMapping(value = "/persons", consumes = "application/json")
 	public ResponseEntity<Person> addPerson(@RequestBody Person person) {
 		return new ResponseEntity<Person>(personService.savePerson(person), HttpStatus.CREATED);
 	}
+	
 }
