@@ -2,6 +2,7 @@ package org.fourstack.infomanagement.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -82,7 +83,7 @@ public class ProfessionalInfo implements Serializable {
 	}, orphanRemoval = true)
 	@JoinColumn(name = "professional_id")
 	@JsonProperty(value = "education_details")
-	private List<EducationDetail> educationalDetails;
+	private List<EducationDetail> educationalDetails = new ArrayList<>();
 	
 	/**
 	 * professionalSkills is mapped by using @OneToMany with Unidirectional.
@@ -91,7 +92,16 @@ public class ProfessionalInfo implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "professional_id")
 	@JsonProperty(value = "professional_skills")
-	private List<ProfessionalSkill> professionalSkills;
+	private List<ProfessionalSkill> professionalSkills = new ArrayList<>();
+
+	/**
+	 * workExperiences is mapped by using @OneToMany with Unidirectional.
+	 * Work_Experience table will maintain the professional_id for mapping.
+	 */
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "professional_id")
+	@JsonProperty(value = "work_experiences")
+	private List<WorkExperience> workExperiences = new ArrayList<>();
 
 	/*
 	 * ****************************************************************************
@@ -185,5 +195,21 @@ public class ProfessionalInfo implements Serializable {
 
 	public void setProfessionalSkills(List<ProfessionalSkill> professionalSkills) {
 		this.professionalSkills = professionalSkills;
+	}
+
+	public List<WorkExperience> getWorkExperiences() {
+		return workExperiences;
+	}
+
+	public void setWorkExperiences(List<WorkExperience> workExperiences) {
+		this.workExperiences = workExperiences;
+	}
+
+	@Override
+	public String toString() {
+		return "ProfessionalInfo [totalExperience=" + totalExperience + ", relevantExperience=" + relevantExperience
+				+ ", currentOrganization=" + currentOrganization + ", designation=" + designation
+				+ ", educationalDetails=" + educationalDetails + ", professionalSkills=" + professionalSkills
+				+ ", workExperiences=" + workExperiences + "]";
 	}
 }
