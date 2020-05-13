@@ -20,7 +20,13 @@ public enum CustErrCodesAndMsgs {
 	UNIQUE_CONSTRAINT_VIOLATION_CODE("INFO_409"),
 	
 	@JsonProperty("Unique Constraint Violation occurred. Please check.")
-	UNIQUE_CONSTRAINT_VIOLATION_MSG("Unique Constraint Violation occurred. Please check.");
+	UNIQUE_CONSTRAINT_VIOLATION_MSG("Unique Constraint Violation occurred. Please check."),
+	
+	@JsonProperty("INFO_404")
+	REQUESTED_ENTITY_NOT_FOUND_CODE("INFO_404"),
+	
+	@JsonProperty("Requested Entity Not Found")
+	REQUESTED_ENTITY_NOT_FOUND_MSG("Requested Entity Not Found");
 	
 	private String message;
 	

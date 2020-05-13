@@ -2,6 +2,7 @@ package org.fourstack.infomanagement.services;
 
 import java.util.List;
 
+import org.fourstack.infomanagement.exceptionhandling.RequestedEntityNotFoundException;
 import org.fourstack.infomanagement.models.Address;
 import org.fourstack.infomanagement.models.ContactInfo;
 import org.fourstack.infomanagement.models.Language;
@@ -27,7 +28,11 @@ public class PersonServiceImpl implements PersonService {
 	
 	@Override
 	public List<Person> getPersons() {
-		return personRepository.findAll();
+		List<Person> personList = personRepository.findAll();
+		if (personList != null)
+			return personList;
+		else
+			throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty List");
 	}
 
 	@Override
