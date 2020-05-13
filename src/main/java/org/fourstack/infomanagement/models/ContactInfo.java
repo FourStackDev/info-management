@@ -54,9 +54,11 @@ public class ContactInfo implements Serializable {
 	}
 
 	/**
-	 * @param primaryContactNum
-	 * @param secondaryContactNum
-	 * @param mailId
+	 * Parameterized constructor to initilaize the ContactInfo Object
+	 * 
+	 * @param primaryContactNum   Primary Contact Number
+	 * @param secondaryContactNum Secondary Contact Number
+	 * @param mailId              Mail Id
 	 */
 	public ContactInfo(String primaryContactNum, String secondaryContactNum, String mailId) {
 		super();

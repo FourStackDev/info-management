@@ -34,9 +34,9 @@ public class AppInfo implements Serializable {
 	 * Parameterized constructor to initialize the AppInfo Object without end points
 	 * details
 	 * 
-	 * @param _appName
-	 * @param _appVersion
-	 * @param _appDescription
+	 * @param _appName        Name of the application
+	 * @param _appVersion     Version of the application
+	 * @param _appDescription Description about the application
 	 */
 	public AppInfo(String _appName, String _appVersion, String _appDescription) {
 		super();
@@ -92,5 +92,11 @@ public class AppInfo implements Serializable {
 
 	public void set_endPoints(List<EndpointsDescription> _endPoints) {
 		this._endPoints = _endPoints;
+	}
+
+	@Override
+	public String toString() {
+		return "AppInfo [_appName=" + _appName + ", _appVersion=" + _appVersion + ", _appDescription=" + _appDescription
+				+ ", _endPoints=" + _endPoints + "]";
 	}
 }

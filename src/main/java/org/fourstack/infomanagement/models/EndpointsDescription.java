@@ -31,9 +31,9 @@ public class EndpointsDescription implements Serializable {
 	/**
 	 * Parameterized Constructor to initialize the EndpointsDescription Object
 	 * 
-	 * @param _method
-	 * @param _uri
-	 * @param _description
+	 * @param _method      Type of the Method
+	 * @param _uri         end uri
+	 * @param _description Description of the End Points
 	 */
 	public EndpointsDescription(MethodType _method, String _uri, String _description) {
 		super();
@@ -64,5 +64,10 @@ public class EndpointsDescription implements Serializable {
 
 	public void set_description(String _description) {
 		this._description = _description;
+	}
+
+	@Override
+	public String toString() {
+		return "EndpointsDescription [_method=" + _method + ", _uri=" + _uri + ", _description=" + _description + "]";
 	}
 }

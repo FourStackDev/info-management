@@ -118,10 +118,10 @@ public class ProfessionalInfo implements Serializable {
 	}
 
 	/**
-	 * @param totalExperience
-	 * @param relevantExperience
-	 * @param currentOrganization
-	 * @param designation
+	 * @param totalExperience     Total Experience in months
+	 * @param relevantExperience  Relevant Experience in months
+	 * @param currentOrganization Name of Current Organization
+	 * @param designation         Current Designation
 	 */
 	public ProfessionalInfo(int totalExperience, int relevantExperience, String currentOrganization,
 			String designation) {
@@ -130,8 +130,6 @@ public class ProfessionalInfo implements Serializable {
 		this.currentOrganization = currentOrganization;
 		this.designation = designation;
 	}
-
-
 
 	public Long getId() {
 		return id;

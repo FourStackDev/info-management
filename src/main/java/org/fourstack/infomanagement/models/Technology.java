@@ -69,8 +69,8 @@ public class Technology implements Serializable {
 	/**
 	 * Parameterized Constructor to initialize the Technology Object
 	 * 
-	 * @param name
-	 * @param version
+	 * @param name    Name of the Technology
+	 * @param version Version of the technology
 	 */
 	public Technology(String name, String version) {
 		super();
