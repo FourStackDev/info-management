@@ -140,6 +140,6 @@ public class WorkExperience implements Serializable {
 	@Override
 	public String toString() {
 		return "WorkExperience [organizationName=" + organizationName + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", isCurrentOrganization=" + isCurrentOrganization + "]";
+				+ endDate + ", isCurrentOrganization=" + isCurrentOrganization + ", projects=" + projects + "]";
 	}
 }

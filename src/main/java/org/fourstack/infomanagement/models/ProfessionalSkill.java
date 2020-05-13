@@ -53,8 +53,8 @@ public class ProfessionalSkill implements Serializable {
 	/**
 	 * Parameterized Constructor to initialize the ProfessionalSkill Entity.
 	 * 
-	 * @param name
-	 * @param proficiency
+	 * @param name        Name of skill
+	 * @param proficiency Proficiency of Skill
 	 */
 	public ProfessionalSkill(String name, Proficiency proficiency) {
 		this.name = name;

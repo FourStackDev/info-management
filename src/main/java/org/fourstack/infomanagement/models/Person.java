@@ -86,6 +86,12 @@ public class Person implements Serializable {
 	@JsonProperty(value = "marital_status")
 	private MaritalStatus maritalStatus;
 
+	/*
+	 * ****************************************************************************
+	 * ************* Start of Mapping columns with other Entities *****************
+	 * ****************************************************************************
+	 */
+	
 	@OneToOne(fetch = FetchType.EAGER, cascade = {
 			CascadeType.MERGE,
 			CascadeType.REFRESH,
@@ -114,6 +120,12 @@ public class Person implements Serializable {
 	@JsonProperty(value = "languages")
 	private List<Language> languages = new ArrayList<>();
 	
+	/*
+	 * ****************************************************************************
+	 * ************** End of Mapping columns with other Entities ******************
+	 * ****************************************************************************
+	 */
+	
 	/**
 	 * createDateTime and updateDateTime columns are used to track the insertion and
 	 * updation of Entities at database level
@@ -135,14 +147,14 @@ public class Person implements Serializable {
 	/**
 	 * Parameterized Constructor to initialize the Person Object.
 	 * 
-	 * @param firstName
-	 * @param middleName
-	 * @param lastName
-	 * @param dateOfBirth
-	 * @param gender
-	 * @param fatherName
-	 * @param motherName
-	 * @param maritalStatus
+	 * @param firstName     First Name of Person
+	 * @param middleName    Middle Name of Person
+	 * @param lastName      Last Name of Person
+	 * @param dateOfBirth   Date of Birth in the format 'yyyy/MM/dd'
+	 * @param gender        Gender of Person
+	 * @param fatherName    Father Name of Person
+	 * @param motherName    Mother Name of Person
+	 * @param maritalStatus Marital Status of Person
 	 */
 	public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth, GenderType gender,
 			String fatherName, String motherName, MaritalStatus maritalStatus) {
@@ -258,6 +270,6 @@ public class Person implements Serializable {
 		return "Person [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
 				+ ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", fatherName=" + fatherName + ", motherName="
 				+ motherName + ", maritalStatus=" + maritalStatus + ", contactInfo=" + contactInfo + ", address="
-				+ address + "]";
+				+ address + ", languages=" + languages + "]";
 	}
 }

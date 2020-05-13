@@ -50,6 +50,10 @@ public class ProjectDetail implements Serializable{
 	@JsonProperty(value = "team_size")
 	private int teamSize;
 	
+	@Column(name = "role_name")
+	@JsonProperty(value = "role_played_in_project")
+	private String roleName;
+	
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@JsonFormat(pattern = "yyyy/MM/dd")
 	@Column(name = "start_date")
@@ -85,18 +89,22 @@ public class ProjectDetail implements Serializable{
 	/**
 	 * No argument Constructor. It is used for the JPA Transactions
 	 */
-	public ProjectDetail() {}
+	public ProjectDetail() {
+	}
 
 	/**
-	 * @param projectName Name of the Project
-	 * @param teamSize    Size of team
-	 * @param startDate   Strat date of the project
-	 * @param endDate     End date of the Project
-	 * @param description Summary about the Project
+	 * @param projectName Name of Project
+	 * @param teamSize    Size of the team
+	 * @param roleName    Role played in the project
+	 * @param startDate   Start date of the project
+	 * @param endDate     End date of project
+	 * @param description Summary about the project
 	 */
-	public ProjectDetail(String projectName, int teamSize, LocalDate startDate, LocalDate endDate, String description) {
+	public ProjectDetail(String projectName, int teamSize, String roleName, LocalDate startDate, LocalDate endDate,
+			String description) {
 		this.projectName = projectName;
 		this.teamSize = teamSize;
+		this.roleName = roleName;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.description = description;
@@ -160,7 +168,9 @@ public class ProjectDetail implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ProjectDetail [projectName=" + projectName + ", teamSize=" + teamSize + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", description=" + description + ", technologies=" + technologies + "]";
+		return "ProjectDetail [projectName=" + projectName + ", teamSize=" + teamSize + ", roleName=" + roleName
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", description=" + description
+				+ ", technologies=" + technologies + "]";
 	}
+
 }

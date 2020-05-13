@@ -64,9 +64,9 @@ public class Language implements Serializable {
 	/**
 	 * Parameterized constructor to initialize the Language Object
 	 *
-	 * @param name
-	 * @param proficiency
-	 * @param fluency
+	 * @param name        Name of the language
+	 * @param proficiency Proficiency level on language
+	 * @param fluency     Fluency on the Language
 	 */
 	public Language(String name, Proficiency proficiency, List<FluencyType> fluency) {
 		this.name = name;

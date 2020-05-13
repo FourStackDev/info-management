@@ -69,13 +69,13 @@ public class Address implements Serializable {
 	/**
 	 * Parameterized constructor to initialize the Address Object
 	 * 
-	 * @param doorNo
-	 * @param addressLine1
-	 * @param addressLine2
-	 * @param district
-	 * @param state
-	 * @param country
-	 * @param pincode
+	 * @param doorNo       door number
+	 * @param addressLine1 To specify the street, cross, main road details
+	 * @param addressLine2 To specify the area of locality, taluk, etc..
+	 * @param district     District name
+	 * @param state        State name
+	 * @param country      Country name
+	 * @param pincode      pincode of the address
 	 */
 	public Address(String doorNo, String addressLine1, String addressLine2, String district, String state,
 			String country, String pincode) {
