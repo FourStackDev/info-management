@@ -1,6 +1,7 @@
 package org.fourstack.infomanagement.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.fourstack.infomanagement.exceptionhandling.RequestedEntityNotFoundException;
 import org.fourstack.infomanagement.models.Address;
@@ -9,6 +10,8 @@ import org.fourstack.infomanagement.models.Language;
 import org.fourstack.infomanagement.models.Person;
 import org.fourstack.infomanagement.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -59,6 +62,78 @@ public class PersonServiceImpl implements PersonService {
 		}
 
 		return person = personRepository.save(person);
+	}
+
+	/**
+	 * Retrieve the List of Person Objects Based on the First name and Last name
+	 * 
+	 * @param firstName First Name
+	 * @param lastName  Last Name
+	 * @return List of Person Objects
+	 */
+	@Override
+	public List<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName) {
+		return null;
+	}
+
+	/**
+	 * Retrieve the Page of Person Objects Based on the First name and Last name
+	 * 
+	 * @param firstName First Name
+	 * @param lastName  Last Name
+	 * @param pageable  Pageable Object
+	 * @return Page of Person Objects
+	 */
+	@Override
+	public Optional<Page<Person>> getPersonsByFirstnameAndLastName(String firstName, String lastName,
+			Pageable pageable) {
+		return null;
+	}
+
+	/**
+	 * Retrieve the List of Person Objects Based on the First name
+	 * 
+	 * @param firstName First Name
+	 * @return Container with List of Persons
+	 */
+	@Override
+	public Optional<List<Person>> getPersonByFirstName(String firstName) {
+		return null;
+	}
+
+	/**
+	 * Retrieve the Page of Person Object Based on the First name
+	 * 
+	 * @param firstName First name
+	 * @param pageable  Pageable Object
+	 * @return Container with Page of Persons
+	 */
+	@Override
+	public Optional<Page<Person>> getPersonByFirstName(String firstName, Pageable pageable) {
+		return null;
+	}
+
+	/**
+	 * Retrieve the List of Person Object Based on the Last name
+	 * 
+	 * @param LastName Last Name
+	 * @return Container with List of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> getPersonByLastName(String LastName) {
+		return null;
+	}
+
+	/**
+	 * Retrieve the Page of Person Object Based on the First name
+	 * 
+	 * @param LastName Last Name
+	 * @param pageable Pageable Object
+	 * @return Container with Page of Person Objects
+	 */
+	@Override
+	public Optional<Page<Person>> getPersonByLastName(String LastName, Pageable pageable) {
+		return null;
 	}
 
 }
