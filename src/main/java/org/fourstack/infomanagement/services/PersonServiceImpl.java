@@ -3,6 +3,8 @@ package org.fourstack.infomanagement.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.fourstack.infomanagement.codetype.GenderType;
+import org.fourstack.infomanagement.codetype.MaritalStatus;
 import org.fourstack.infomanagement.exceptionhandling.RequestedEntityNotFoundException;
 import org.fourstack.infomanagement.models.Address;
 import org.fourstack.infomanagement.models.ContactInfo;
@@ -81,21 +83,30 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	/**
-	 * Retrieve the Page of Person Objects Based on the First name and Last name
+	 * Retrieve the Page of {@link Person} Objects Based on the First name and Last name.
 	 * 
 	 * @param firstName First Name
 	 * @param lastName  Last Name
 	 * @param pageable  Pageable Object
+	 * @throws RequestedEntityNotFoundException If no entity found in the database
+	 *                                          with provided first name and last
+	 *                                          name.
 	 * @return Page of Person Objects
 	 */
 	@Override
-	public Optional<Page<Person>> getPersonsByFirstnameAndLastName(String firstName, String lastName,
+	public Page<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName,
 			Pageable pageable) {
-		return null;
+		Optional<Page<Person>> optional = personRepository.findByFirstNameAndLastName(firstName, lastName, pageable);
+		
+		Page<Person> personPage = optional.isPresent() ? optional.get() : null;
+		if (personPage != null)
+			return personPage;
+		else
+			throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty Page");
 	}
 
 	/**
-	 * Retrieve the List of Person Objects Based on the First name
+	 * Retrieve the List of {@link Person} Objects Based on the First name
 	 * 
 	 * @param firstName First Name
 	 * @return Container with List of Persons
@@ -106,7 +117,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	/**
-	 * Retrieve the Page of Person Object Based on the First name
+	 * Retrieve the Page of {@link Person} Object Based on the First name
 	 * 
 	 * @param firstName First name
 	 * @param pageable  Pageable Object
@@ -118,7 +129,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	/**
-	 * Retrieve the List of Person Object Based on the Last name
+	 * Retrieve the List of {@link Person} Object Based on the Last name
 	 * 
 	 * @param LastName Last Name
 	 * @return Container with List of Person Objects
@@ -129,7 +140,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	/**
-	 * Retrieve the Page of Person Object Based on the First name
+	 * Retrieve the Page of {@link Person} Object Based on the First name
 	 * 
 	 * @param LastName Last Name
 	 * @param pageable Pageable Object
@@ -137,6 +148,52 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<Page<Person>> getPersonByLastName(String LastName, Pageable pageable) {
+		return null;
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on Gender
+	 * 
+	 * @param gender Gender Type
+	 * @return Container having List of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByGender(GenderType gender) {
+		return null;
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Gender
+	 * 
+	 * @param gender   Gender Type
+	 * @param pageable Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Optional<Page<Person>> findByGender(GenderType gender, Pageable pageable) {
+		return null;
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on Marital Status
+	 * 
+	 * @param maritalStatus MaritalStatus Type
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByMaritalStatus(MaritalStatus maritalStatus) {
+		return null;
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Marital Status
+	 * 
+	 * @param maritalStatus MaritalStatus Type
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Objects
+	 */
+	@Override
+	public Optional<Page<Person>> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
 		return null;
 	}
 
