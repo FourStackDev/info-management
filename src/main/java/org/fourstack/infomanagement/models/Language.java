@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Class <b><i>Language</i></b> is an Entity class, which is designed to handle
  * the languages known to the person Object. <br/>
  * 
- * It is sub entity for the Person entity
+ * It is sub entity for the {@link Person} entity
  * 
  * @author Manjunath_HM
  *

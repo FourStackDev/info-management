@@ -23,13 +23,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Class <b><i>ProfessionalInfo</i></b> is an Entity Class to maintain the
- * Professional Information related to Person.
+ * Professional Information related to {@link Person}.
  * <p>
  * The sub entities of ProfessionalInfo are :
  * <ul>
- * <li>ProfessionalSkill</li>
- * <li>WorkExperience</li>
- * <li>Education</li>
+ * <li>{@link ProfessionalSkill}</li>
+ * <li>{@link WorkExperience}</li>
+ * <li>{@link EducationDetail}</li>
  * </ul>
  * </p>
  * 

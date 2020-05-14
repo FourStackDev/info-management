@@ -23,7 +23,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Entity Class to handle the Work Experience related to a Person.<br/>
- * It is a sub entity class for Professional Info
+ * It is a sub entity class for {@link ProfessionalInfo}
+ * 
+ * <p>
+ * The sub entities of ProfessionalInfo are :
+ * <ul>
+ * <li>{@link ProjectDetail}</li>
+ * </ul>
+ * </p>
  * 
  * @author Manjunath_HM
  *
