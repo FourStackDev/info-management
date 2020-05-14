@@ -99,7 +99,12 @@ public class PersonServiceImpl implements PersonService {
 		Optional<Page<Person>> optional = personRepository.findByFirstNameAndLastName(firstName, lastName, pageable);
 		
 		Page<Person> personPage = optional.isPresent() ? optional.get() : null;
-		if (personPage != null)
+		
+		/*
+		 * Check for the page, then content inside the page (it may be empty list some
+		 * times) then check for empty list
+		 */
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
 		else
 			throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty Page");
@@ -113,7 +118,12 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> getPersonByFirstName(String firstName) {
-		return null;
+		Optional<List<Person>> optional = personRepository.findByFirstName(firstName);
+		List<Person> personList = optional.isPresent() ? optional.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optional;
+
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty List");
 	}
 
 	/**
@@ -124,8 +134,18 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container with Page of Persons
 	 */
 	@Override
-	public Optional<Page<Person>> getPersonByFirstName(String firstName, Pageable pageable) {
-		return null;
+	public Page<Person> getPersonByFirstName(String firstName, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstName(firstName, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		
+		/*
+		 * Check for the page, then content inside the page (it may be empty list some
+		 * times) then check for empty list
+		 */
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty Page");
 	}
 
 	/**
@@ -135,8 +155,14 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container with List of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> getPersonByLastName(String LastName) {
-		return null;
+	public Optional<List<Person>> getPersonByLastName(String lastName) {
+		Optional<List<Person>> optionalList = personRepository.findByLastName(lastName);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
 	}
 
 	/**
@@ -147,8 +173,17 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container with Page of Person Objects
 	 */
 	@Override
-	public Optional<Page<Person>> getPersonByLastName(String LastName, Pageable pageable) {
-		return null;
+	public Page<Person> getPersonByLastName(String lastName, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByLastName(lastName, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		/*
+		 * Check for the page, then content inside the page (it may be empty list some
+		 * times) then check for empty list
+		 */
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned Empty Page");
 	}
 
 	/**
@@ -159,7 +194,13 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> findByGender(GenderType gender) {
-		return null;
+		Optional<List<Person>> optionalList = personRepository.findByGender(gender);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
 	}
 
 	/**
@@ -170,8 +211,14 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Optional<Page<Person>> findByGender(GenderType gender, Pageable pageable) {
-		return null;
+	public Page<Person> findByGender(GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByGender(gender, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		
+		if (personPage != null && personPage.getContent() != null && !personPage.isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
 	}
 
 	/**
@@ -182,7 +229,13 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> findByMaritalStatus(MaritalStatus maritalStatus) {
-		return null;
+		Optional<List<Person>> optional = personRepository.findByMaritalStatus(maritalStatus);
+		List<Person> personlList = optional.isPresent() ? optional.get() : null;
+		
+		if (personlList != null && !personlList.isEmpty()) 
+			return optional;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
 	}
 
 	/**
@@ -193,8 +246,14 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Objects
 	 */
 	@Override
-	public Optional<Page<Person>> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
-		return null;
+	public Page<Person> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByMaritalStatus(maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
 	}
 
 }
