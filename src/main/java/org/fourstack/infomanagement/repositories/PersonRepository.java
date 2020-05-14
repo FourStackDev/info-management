@@ -111,5 +111,233 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @return Container having page of Objects
 	 */
 	public Optional<Page<Person>> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name and Marital
+	 * Status.
+	 * 
+	 * @param firstName     First name
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus);
 
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name and Marital
+	 * Status.
+	 * 
+	 * @param firstName     First name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Objects
+	 */
+	public Optional<Page<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
+			Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name and Gender.
+	 * 
+	 * @param firstName First name
+	 * @param gender    Gender
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndGender(String firstName, GenderType gender);
+	
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name and Gender.
+	 * 
+	 * @param firstName First name
+	 * @param gender    Gender
+	 * @param pageable  Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable);
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Gender and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Conatiner having list of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+			MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Gender and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+			MaritalStatus maritalStatus, Pageable pageable);
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+			MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+			MaritalStatus maritalStatus, Pageable pageable);
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name and
+	 * Gender
+	 * 
+	 * @param firstName First name
+	 * @param lastName  Last name
+	 * @param gender    Gender
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+			GenderType gender);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name and
+	 * Gender
+	 * 
+	 * @param firstName First name
+	 * @param lastName  Last name
+	 * @param gender    Gender
+	 * @param pageable  Pageabe Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+			GenderType gender, Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Gender and Marital Status
+	 * 
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	public Optional<List<Person>> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Gender and Marital Status
+	 * 
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having Page of Person Objects
+	 */
+	public Optional<Page<Person>> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
+			Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name and Marital
+	 * Status
+	 * 
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	public Optional<List<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name and Marital
+	 * Status
+	 * 
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having Page of Person Objects
+	 */
+	public Optional<Page<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
+			Pageable pageable);
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name and Gender
+	 * 
+	 * @param lastName Last name
+	 * @param gender   Gender
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByLastnameAndGender(String lastName, GenderType gender);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name and Gender
+	 * 
+	 * @param lastName Last name
+	 * @param gender   Gender
+	 * @param pageable Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByLastnameAndGender(String lastName, GenderType gender, Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name, Gender and
+	 * Marital Status
+	 * 
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+			MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name, Gender and
+	 * Marital Status
+	 * 
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<Page<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+			MaritalStatus maritalStatus, Pageable pageable);
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name,
+	 * Gender and Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+			GenderType gender, MaritalStatus maritalStatus);
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name,
+	 * Gender and Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param page          Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+			GenderType gender, MaritalStatus maritalStatus, Pageable page);
 }
