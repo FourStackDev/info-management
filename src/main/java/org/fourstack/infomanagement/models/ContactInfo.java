@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.ColumnTransformer;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -44,6 +46,7 @@ public class ContactInfo implements Serializable {
 	private String secondaryContactNum;
 
 	@Column(name = "mailId")
+	@ColumnTransformer(read = "LOWER(mailId)", write = "LOWER(?)")
 	@JsonProperty(value = "mail_id")
 	private String mailId;
 
