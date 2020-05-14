@@ -22,17 +22,17 @@ public interface PersonService {
 	
 	public Optional<List<Person>> getPersonByFirstName(String firstName);
 
-	public Optional<Page<Person>> getPersonByFirstName(String firstName, Pageable pageable);
+	public Page<Person> getPersonByFirstName(String firstName, Pageable pageable);
 
-	public Optional<List<Person>> getPersonByLastName(String LastName);
+	public Optional<List<Person>> getPersonByLastName(String lastName);
 
-	public Optional<Page<Person>> getPersonByLastName(String LastName, Pageable pageable);
+	public Page<Person> getPersonByLastName(String lastName, Pageable pageable);
 	
 	public Optional<List<Person>> findByGender(GenderType gender);
 	
-	public Optional<Page<Person>> findByGender(GenderType gender, Pageable pageable);
+	public Page<Person> findByGender(GenderType gender, Pageable pageable);
 	
 	public Optional<List<Person>> findByMaritalStatus(MaritalStatus maritalStatus);
 	
-	public Optional<Page<Person>> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable);
+	public Page<Person> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable);
 }
