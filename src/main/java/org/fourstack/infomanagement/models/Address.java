@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Class <b><i>Address</i></b> is an Entity model of the application.<br/>
- * It is a sub entity for the Person Entity. This entity stores the address of
+ * It is a sub entity for the {@link Person} Entity. This entity stores the address of
  * the Person Object
  * 
  * @author Manjunath_HM

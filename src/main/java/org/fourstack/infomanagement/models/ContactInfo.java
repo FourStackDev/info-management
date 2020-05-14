@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Class <b><i>ContactInfo</i></b> is an Entity model of the application. <br/>
  * It is a sub entity for the Person Entity. This entity stores the contact
- * information of the Person. It has 2 unique constraint columns (primary
+ * information of the {@link Person}. It has 2 unique constraint columns (primary
  * Contact number and mailId)
  * 
  * @author Manjunath_HM
@@ -46,7 +46,7 @@ public class ContactInfo implements Serializable {
 	private String secondaryContactNum;
 
 	@Column(name = "mailId")
-	@ColumnTransformer(read = "LOWER(mailId)", write = "LOWER(?)")
+	@ColumnTransformer(forColumn = "mailId", write = "LOWER(?)")
 	@JsonProperty(value = "mail_id")
 	private String mailId;
 

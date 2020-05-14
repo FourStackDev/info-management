@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Entity Class to maintain the Professional skills of a Person.<br/>
- * It is a sub entity of ProfessionalInfo.
+ * It is a sub entity of {@link ProfessionalInfo}.
  * 
  * @author Manjunath_HM
  *

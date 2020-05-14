@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Class <b><i>Technology</i></b> is an Entity class used to store the
  * Technologies used by the Project.<br/>
- * It is a sub entity for ProjectDetail Entity
+ * It is a sub entity for {@link ProjectDetail} Entity
  * <p>
  * In this class both 'technology_name' and 'version' combinedly acts as unique
  * constraint

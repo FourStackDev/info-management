@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Class <b><i>Person</i></b> is an Entity Model of the Application.<br/>
  * It stores the Person Object information and also manages the Sub
- * models(Address, ContactInfo, Language) information
+ * models({@link Address}, {@link ContactInfo}, {@link Language}) information
  * 
  * @author Manjunath_HM
  *
