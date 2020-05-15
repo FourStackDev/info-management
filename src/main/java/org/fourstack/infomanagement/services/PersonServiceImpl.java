@@ -75,7 +75,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public List<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName) {
-		List<Person> personList = personRepository.findByFirstNameAndLastName(firstName, lastName);
+		List<Person> personList = personRepository.findByFirstnameAndLastname(firstName, lastName);
 		if (personList != null && !personList.isEmpty())
 			return personList;
 		else
@@ -96,7 +96,7 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public Page<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName,
 			Pageable pageable) {
-		Optional<Page<Person>> optional = personRepository.findByFirstNameAndLastName(firstName, lastName, pageable);
+		Optional<Page<Person>> optional = personRepository.findByFirstnameAndLastname(firstName, lastName, pageable);
 		
 		Page<Person> personPage = optional.isPresent() ? optional.get() : null;
 		
@@ -118,7 +118,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> getPersonByFirstName(String firstName) {
-		Optional<List<Person>> optional = personRepository.findByFirstName(firstName);
+		Optional<List<Person>> optional = personRepository.findByFirstname(firstName);
 		List<Person> personList = optional.isPresent() ? optional.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optional;
@@ -135,7 +135,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Page<Person> getPersonByFirstName(String firstName, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstName(firstName, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstname(firstName, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
 		/*
@@ -156,7 +156,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> getPersonByLastName(String lastName) {
-		Optional<List<Person>> optionalList = personRepository.findByLastName(lastName);
+		Optional<List<Person>> optionalList = personRepository.findByLastname(lastName);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		
 		if (personList != null && !personList.isEmpty())
@@ -174,7 +174,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Page<Person> getPersonByLastName(String lastName, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByLastName(lastName, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByLastname(lastName, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		/*
 		 * Check for the page, then content inside the page (it may be empty list some
@@ -243,13 +243,426 @@ public class PersonServiceImpl implements PersonService {
 	 * 
 	 * @param maritalStatus MaritalStatus Type
 	 * @param pageable      Pageable Object
-	 * @return Container having page of Objects
+	 * @return Page of Person Objects
 	 */
 	@Override
 	public Page<Person> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
 		Optional<Page<Person>> optionalPage = personRepository.findByMaritalStatus(maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+
+	
+	/**
+	 * To retrieve Page of {@link Person} Objects by using Pageable Object
+	 * 
+	 * @param pageable Pageable Object
+	 * @return Page of Person Objects
+	 */
+	@Override
+	public Page<Person> getPersons(Pageable pageable) {
+		Page<Person> page = personRepository.findAll(pageable);
+		if (page != null && page.getContent() != null && !page.getContent().isEmpty())
+			return page;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name and Marital
+	 * Status.
+	 * 
+	 * @param firstName     First name
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndMaritalStatus(firstName, maritalStatus);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name and Marital
+	 * Status.
+	 * 
+	 * @param firstName     First name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
+			Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndMaritalStatus(firstName, maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name and Gender.
+	 * 
+	 * @param firstName First name
+	 * @param gender    Gender
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndGender(String firstName, GenderType gender) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndGender(firstName, gender);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+	
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name and Gender.
+	 * 
+	 * @param firstName First name
+	 * @param gender    Gender
+	 * @param pageable  Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndGender(firstName, gender, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Gender and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Conatiner having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+			MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndGenderAndMaritalStatus(firstName,
+				gender, maritalStatus);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Gender and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+			MaritalStatus maritalStatus, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndGenderAndMaritalStatus(firstName, gender, maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+			MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndLastnameAndMaritalStatus(firstName, lastName, maritalStatus);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name and
+	 * Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+			MaritalStatus maritalStatus, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndLastnameAndMaritalStatus(firstName, lastName, maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name and
+	 * Gender
+	 * 
+	 * @param firstName First name
+	 * @param lastName  Last name
+	 * @param gender    Gender
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+			GenderType gender) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndLastnameAndGender(firstName, lastName, gender);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name and
+	 * Gender
+	 * 
+	 * @param firstName First name
+	 * @param lastName  Last name
+	 * @param gender    Gender
+	 * @param pageable  Pageabe Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+			GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndLastnameAndGender(firstName, lastName, gender, pageable);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");		
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Gender and Marital Status
+	 * 
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByGenderAndMaritalStatus(gender, maritalStatus);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Gender and Marital Status
+	 * 
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having Page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
+			Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByGenderAndMaritalStatus(gender, maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.orElse(null);
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name and Marital
+	 * Status
+	 * 
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @return Container having List of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByLastnameAndMaritalStatus(lastName, maritalStatus);
+		List<Person> personList = optionalList.orElse(null);
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name and Marital
+	 * Status
+	 * 
+	 * @param lastName      Last name
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having Page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
+			Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndMaritalStatus(lastName, maritalStatus,
+				pageable);
+		Page<Person> personPage = optionalPage.orElse(null);
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name and Gender
+	 * 
+	 * @param lastName Last name
+	 * @param gender   Gender
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByLastnameAndGender(String lastName, GenderType gender) {
+		Optional<List<Person>> optionalList = personRepository.findByLastnameAndGender(lastName, gender);
+		List<Person> personList = optionalList.orElse(null);
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name and Gender
+	 * 
+	 * @param lastName Last name
+	 * @param gender   Gender
+	 * @param pageable Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByLastnameAndGender(String lastName, GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndGender(lastName, gender, pageable);
+		Page<Person> personPage = optionalPage.orElse(null);
+		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
+			return personPage;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty Page");
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on Last name, Gender and
+	 * Marital Status
+	 * 
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+			MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByLastnameAndGenderAndMaritalStatus(lastName, gender,
+				maritalStatus);
+		List<Person> personList = optionalList.orElse(null);
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on Last name, Gender and
+	 * Marital Status
+	 * 
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param pageable      Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+			MaritalStatus maritalStatus, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndGenderAndMaritalStatus(lastName, gender,
+				maritalStatus, pageable);
+		Page<Person> personPage = optionalPage.orElse(null);
+		if (personPage != null && personPage.getContent() != null && personPage.getContent().isEmpty())
+			return personPage;
+
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+	
+	/**
+	 * To retrieve List of {@link Person} Objects based on First name, Last name,
+	 * Gender and Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @return Container having list of Person Objects
+	 */
+	@Override
+	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+			GenderType gender, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository
+				.findByFirstnameAndLastnameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus);
+		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
+		if (personList != null && !personList.isEmpty())
+			return optionalList;
+		
+		throw new RequestedEntityNotFoundException("Requested Entites are not Found: Returned empty List");
+	}
+
+	/**
+	 * To retrieve Page of {@link Person} Objects based on First name, Last name,
+	 * Gender and Marital Status
+	 * 
+	 * @param firstName     First name
+	 * @param lastName      Last name
+	 * @param gender        Gender
+	 * @param maritalStatus Marital Status
+	 * @param page          Pageable Object
+	 * @return Container having page of Person Objects
+	 */
+	@Override
+	public Page<Person> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+			GenderType gender, MaritalStatus maritalStatus, Pageable page) {
+		Optional<Page<Person>> optionalPage = personRepository
+				.findByFirstnameAndLastnameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus, page);
+		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
 		
