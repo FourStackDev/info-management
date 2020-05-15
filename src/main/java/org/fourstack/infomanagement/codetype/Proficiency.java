@@ -2,6 +2,18 @@ package org.fourstack.infomanagement.codetype;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Enum {@code Proficiency} defines the ability on a Technical Language. It
+ * defines mainly 3 types.
+ * <ul>
+ * <li>BEGINNER</li>
+ * <li>PROFICIENT</li>
+ * <li>EXPERT</li>
+ * </ul>
+ * 
+ * @author Manjunath_Hm
+ *
+ */
 public enum Proficiency {
 	
 	@JsonProperty("beginner")
