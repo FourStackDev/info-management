@@ -75,7 +75,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public List<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName) {
-		List<Person> personList = personRepository.findByFirstnameAndLastname(firstName, lastName);
+		List<Person> personList = personRepository.findByFirstNameAndLastName(firstName, lastName);
 		if (personList != null && !personList.isEmpty())
 			return personList;
 		else
@@ -96,7 +96,7 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public Page<Person> getPersonsByFirstnameAndLastName(String firstName, String lastName,
 			Pageable pageable) {
-		Optional<Page<Person>> optional = personRepository.findByFirstnameAndLastname(firstName, lastName, pageable);
+		Optional<Page<Person>> optional = personRepository.findByFirstNameAndLastName(firstName, lastName, pageable);
 		
 		Page<Person> personPage = optional.isPresent() ? optional.get() : null;
 		
@@ -118,7 +118,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> getPersonByFirstName(String firstName) {
-		Optional<List<Person>> optional = personRepository.findByFirstname(firstName);
+		Optional<List<Person>> optional = personRepository.findByFirstName(firstName);
 		List<Person> personList = optional.isPresent() ? optional.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optional;
@@ -135,7 +135,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Page<Person> getPersonByFirstName(String firstName, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstname(firstName, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstName(firstName, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
 		/*
@@ -156,7 +156,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Optional<List<Person>> getPersonByLastName(String lastName) {
-		Optional<List<Person>> optionalList = personRepository.findByLastname(lastName);
+		Optional<List<Person>> optionalList = personRepository.findByLastName(lastName);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		
 		if (personList != null && !personList.isEmpty())
@@ -174,7 +174,7 @@ public class PersonServiceImpl implements PersonService {
 	 */
 	@Override
 	public Page<Person> getPersonByLastName(String lastName, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByLastname(lastName, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByLastName(lastName, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		/*
 		 * Check for the page, then content inside the page (it may be empty list some
@@ -193,7 +193,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having List of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByGender(GenderType gender) {
+	public Optional<List<Person>> getPersonListByGender(GenderType gender) {
 		Optional<List<Person>> optionalList = personRepository.findByGender(gender);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		
@@ -211,7 +211,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByGender(GenderType gender, Pageable pageable) {
+	public Page<Person> getPersonListByGender(GenderType gender, Pageable pageable) {
 		Optional<Page<Person>> optionalPage = personRepository.findByGender(gender, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
@@ -228,7 +228,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByMaritalStatus(MaritalStatus maritalStatus) {
+	public Optional<List<Person>> getPersonListByMaritalStatus(MaritalStatus maritalStatus) {
 		Optional<List<Person>> optional = personRepository.findByMaritalStatus(maritalStatus);
 		List<Person> personlList = optional.isPresent() ? optional.get() : null;
 		
@@ -246,7 +246,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
+	public Page<Person> getPersonListByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable) {
 		Optional<Page<Person>> optionalPage = personRepository.findByMaritalStatus(maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
@@ -281,8 +281,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having List of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus) {
-		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndMaritalStatus(firstName, maritalStatus);
+	public Optional<List<Person>> getPersonListByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstNameAndMaritalStatus(firstName, maritalStatus);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -300,9 +300,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
 			Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndMaritalStatus(firstName, maritalStatus, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstNameAndMaritalStatus(firstName, maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
@@ -319,8 +319,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndGender(String firstName, GenderType gender) {
-		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndGender(firstName, gender);
+	public Optional<List<Person>> getPersonListByFirstnameAndGender(String firstName, GenderType gender) {
+		Optional<List<Person>> optionalList = personRepository.findByFirstNameAndGender(firstName, gender);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -337,8 +337,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndGender(firstName, gender, pageable);
+	public Page<Person> getPersonListByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstNameAndGender(firstName, gender, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
@@ -357,9 +357,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Conatiner having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Optional<List<Person>> getPersonListByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus) {
-		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndGenderAndMaritalStatus(firstName,
+		Optional<List<Person>> optionalList = personRepository.findByFirstNameAndGenderAndMaritalStatus(firstName,
 				gender, maritalStatus);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
@@ -379,9 +379,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Page<Person> getPersonListByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndGenderAndMaritalStatus(firstName, gender, maritalStatus, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstNameAndGenderAndMaritalStatus(firstName, gender, maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
@@ -399,9 +399,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus) {
-		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndLastnameAndMaritalStatus(firstName, lastName, maritalStatus);
+		Optional<List<Person>> optionalList = personRepository.findByFirstNameAndLastNameAndMaritalStatus(firstName, lastName, maritalStatus);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -420,9 +420,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndLastnameAndMaritalStatus(firstName, lastName, maritalStatus, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstNameAndLastNameAndMaritalStatus(firstName, lastName, maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
@@ -440,9 +440,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndGender(String firstName, String lastName,
 			GenderType gender) {
-		Optional<List<Person>> optionalList = personRepository.findByFirstnameAndLastnameAndGender(firstName, lastName, gender);
+		Optional<List<Person>> optionalList = personRepository.findByFirstNameAndLastNameAndGender(firstName, lastName, gender);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -461,9 +461,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndGender(String firstName, String lastName,
 			GenderType gender, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByFirstnameAndLastnameAndGender(firstName, lastName, gender, pageable);
+		Optional<Page<Person>> optionalPage = personRepository.findByFirstNameAndLastNameAndGender(firstName, lastName, gender, pageable);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
@@ -479,7 +479,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having List of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus) {
+	public Optional<List<Person>> getPersonListByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus) {
 		Optional<List<Person>> optionalList = personRepository.findByGenderAndMaritalStatus(gender, maritalStatus);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
@@ -497,7 +497,7 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having Page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
 			Pageable pageable) {
 		Optional<Page<Person>> optionalPage = personRepository.findByGenderAndMaritalStatus(gender, maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.orElse(null);
@@ -516,8 +516,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having List of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus) {
-		Optional<List<Person>> optionalList = personRepository.findByLastnameAndMaritalStatus(lastName, maritalStatus);
+	public Optional<List<Person>> getPersonListByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus) {
+		Optional<List<Person>> optionalList = personRepository.findByLastNameAndMaritalStatus(lastName, maritalStatus);
 		List<Person> personList = optionalList.orElse(null);
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -535,9 +535,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having Page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
 			Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndMaritalStatus(lastName, maritalStatus,
+		Optional<Page<Person>> optionalPage = personRepository.findByLastNameAndMaritalStatus(lastName, maritalStatus,
 				pageable);
 		Page<Person> personPage = optionalPage.orElse(null);
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
@@ -554,8 +554,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByLastnameAndGender(String lastName, GenderType gender) {
-		Optional<List<Person>> optionalList = personRepository.findByLastnameAndGender(lastName, gender);
+	public Optional<List<Person>> getPersonListByLastnameAndGender(String lastName, GenderType gender) {
+		Optional<List<Person>> optionalList = personRepository.findByLastNameAndGender(lastName, gender);
 		List<Person> personList = optionalList.orElse(null);
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -572,8 +572,8 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByLastnameAndGender(String lastName, GenderType gender, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndGender(lastName, gender, pageable);
+	public Page<Person> getPersonListByLastnameAndGender(String lastName, GenderType gender, Pageable pageable) {
+		Optional<Page<Person>> optionalPage = personRepository.findByLastNameAndGender(lastName, gender, pageable);
 		Page<Person> personPage = optionalPage.orElse(null);
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;
@@ -591,9 +591,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Optional<List<Person>> getPersonListByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus) {
-		Optional<List<Person>> optionalList = personRepository.findByLastnameAndGenderAndMaritalStatus(lastName, gender,
+		Optional<List<Person>> optionalList = personRepository.findByLastNameAndGenderAndMaritalStatus(lastName, gender,
 				maritalStatus);
 		List<Person> personList = optionalList.orElse(null);
 		if (personList != null && !personList.isEmpty())
@@ -613,9 +613,9 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Page<Person> getPersonListByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable) {
-		Optional<Page<Person>> optionalPage = personRepository.findByLastnameAndGenderAndMaritalStatus(lastName, gender,
+		Optional<Page<Person>> optionalPage = personRepository.findByLastNameAndGenderAndMaritalStatus(lastName, gender,
 				maritalStatus, pageable);
 		Page<Person> personPage = optionalPage.orElse(null);
 		if (personPage != null && personPage.getContent() != null && personPage.getContent().isEmpty())
@@ -635,10 +635,10 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having list of Person Objects
 	 */
 	@Override
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus) {
 		Optional<List<Person>> optionalList = personRepository
-				.findByFirstnameAndLastnameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus);
+				.findByFirstNameAndLastNameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus);
 		List<Person> personList = optionalList.isPresent() ? optionalList.get() : null;
 		if (personList != null && !personList.isEmpty())
 			return optionalList;
@@ -658,10 +658,10 @@ public class PersonServiceImpl implements PersonService {
 	 * @return Container having page of Person Objects
 	 */
 	@Override
-	public Page<Person> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus, Pageable page) {
 		Optional<Page<Person>> optionalPage = personRepository
-				.findByFirstnameAndLastnameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus, page);
+				.findByFirstNameAndLastNameAndGenderAndMaritalStatus(firstName, lastName, gender, maritalStatus, page);
 		Page<Person> personPage = optionalPage.isPresent() ? optionalPage.get() : null;
 		if (personPage != null && personPage.getContent() != null && !personPage.getContent().isEmpty())
 			return personPage;

@@ -32,7 +32,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param lastName  Last name
 	 * @return List of Person Objects
 	 */
-	public List<Person> findByFirstnameAndLastname(String firstName, String lastName);
+	public List<Person> findByFirstNameAndLastName(String firstName, String lastName);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on First name and Last name
@@ -42,7 +42,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable  Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndLastname(String firstName, String lastName, Pageable pageable);
+	public Optional<Page<Person>> findByFirstNameAndLastName(String firstName, String lastName, Pageable pageable);
 
 	/**
 	 * To retrieve List of {@link Person} Objects based on First name
@@ -50,7 +50,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param firstName First Name
 	 * @return Container having the List of Person Object
 	 */
-	public Optional<List<Person>> findByFirstname(String firstName);
+	public Optional<List<Person>> findByFirstName(String firstName);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on First name
@@ -59,7 +59,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable  Pageable Object
 	 * @return Container having Page of Person Object
 	 */
-	public Optional<Page<Person>> findByFirstname(String firstName, Pageable pageable);
+	public Optional<Page<Person>> findByFirstName(String firstName, Pageable pageable);
 
 	/**
 	 * To retrieve List of {@link Person} Objects based on Last name
@@ -67,7 +67,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param lastName Last Name
 	 * @return Container having List of Person Object
 	 */
-	public Optional<List<Person>> findByLastname(String lastName);
+	public Optional<List<Person>> findByLastName(String lastName);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on Last name
@@ -76,7 +76,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable Pageable Object
 	 * @return Container having Page of Person Object
 	 */
-	public Optional<Page<Person>> findByLastname(String lastName, Pageable pageable);
+	public Optional<Page<Person>> findByLastName(String lastName, Pageable pageable);
 
 	/**
 	 * To retrieve List of {@link Person} Objects based on Gender
@@ -120,7 +120,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Container having List of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus);
+	public Optional<List<Person>> findByFirstNameAndMaritalStatus(String firstName, MaritalStatus maritalStatus);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on First name and Marital
@@ -131,7 +131,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable      Pageable Object
 	 * @return Container having page of Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
+	public Optional<Page<Person>> findByFirstNameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
 			Pageable pageable);
 	
 	/**
@@ -141,7 +141,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param gender    Gender
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndGender(String firstName, GenderType gender);
+	public Optional<List<Person>> findByFirstNameAndGender(String firstName, GenderType gender);
 	
 	/**
 	 * To retrieve Page of {@link Person} Objects based on First name and Gender.
@@ -151,7 +151,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable  Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable);
+	public Optional<Page<Person>> findByFirstNameAndGender(String firstName, GenderType gender, Pageable pageable);
 
 	/**
 	 * To retrieve List of {@link Person} Objects based on First name, Gender and
@@ -162,7 +162,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Conatiner having list of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Optional<List<Person>> findByFirstNameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus);
 
 	/**
@@ -175,7 +175,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable      Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Optional<Page<Person>> findByFirstNameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable);
 
 	/**
@@ -187,7 +187,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> findByFirstNameAndLastNameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus);
 
 	/**
@@ -200,7 +200,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable      Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Optional<Page<Person>> findByFirstNameAndLastNameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus, Pageable pageable);
 
 	/**
@@ -212,7 +212,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param gender    Gender
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Optional<List<Person>> findByFirstNameAndLastNameAndGender(String firstName, String lastName,
 			GenderType gender);
 
 	/**
@@ -225,7 +225,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable  Pageabe Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Optional<Page<Person>> findByFirstNameAndLastNameAndGender(String firstName, String lastName,
 			GenderType gender, Pageable pageable);
 	
 	/**
@@ -256,7 +256,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Container having List of Person Objects
 	 */
-	public Optional<List<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus);
+	public Optional<List<Person>> findByLastNameAndMaritalStatus(String lastName, MaritalStatus maritalStatus);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on Last name and Marital
@@ -267,7 +267,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable      Pageable Object
 	 * @return Container having Page of Person Objects
 	 */
-	public Optional<Page<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
+	public Optional<Page<Person>> findByLastNameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
 			Pageable pageable);
 
 	/**
@@ -277,7 +277,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param gender   Gender
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByLastnameAndGender(String lastName, GenderType gender);
+	public Optional<List<Person>> findByLastNameAndGender(String lastName, GenderType gender);
 
 	/**
 	 * To retrieve Page of {@link Person} Objects based on Last name and Gender
@@ -287,7 +287,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByLastnameAndGender(String lastName, GenderType gender, Pageable pageable);
+	public Optional<Page<Person>> findByLastNameAndGender(String lastName, GenderType gender, Pageable pageable);
 	
 	/**
 	 * To retrieve List of {@link Person} Objects based on Last name, Gender and
@@ -298,7 +298,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Optional<List<Person>> findByLastNameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus);
 
 	/**
@@ -311,7 +311,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param pageable      Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Optional<Page<Person>> findByLastNameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable);
 	
 	/**
@@ -324,7 +324,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param maritalStatus Marital Status
 	 * @return Container having list of Person Objects
 	 */
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> findByFirstNameAndLastNameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus);
 
 	/**
@@ -338,6 +338,6 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 * @param page          Pageable Object
 	 * @return Container having page of Person Objects
 	 */
-	public Optional<Page<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Optional<Page<Person>> findByFirstNameAndLastNameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus, Pageable page);
 }
