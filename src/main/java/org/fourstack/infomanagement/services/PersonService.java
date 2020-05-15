@@ -30,13 +30,13 @@ public interface PersonService {
 
 	public Page<Person> getPersonByLastName(String lastName, Pageable pageable);
 	
-	public Optional<List<Person>> findByGender(GenderType gender);
+	public Optional<List<Person>> getPersonListByGender(GenderType gender);
 	
-	public Page<Person> findByGender(GenderType gender, Pageable pageable);
+	public Page<Person> getPersonListByGender(GenderType gender, Pageable pageable);
 	
-	public Optional<List<Person>> findByMaritalStatus(MaritalStatus maritalStatus);
+	public Optional<List<Person>> getPersonListByMaritalStatus(MaritalStatus maritalStatus);
 	
-	public Page<Person> findByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable);
+	public Page<Person> getPersonListByMaritalStatus(MaritalStatus maritalStatus, Pageable pageable);
 	
 	
 	/*
@@ -59,57 +59,57 @@ public interface PersonService {
 	 * 
 	 * *****************************************************************************
 	 */
-	public Optional<List<Person>> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus);
+	public Optional<List<Person>> getPersonListByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus);
 
-	public Page<Person> findByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByFirstnameAndMaritalStatus(String firstName, MaritalStatus maritalStatus,
 			Pageable pageable);
 
-	public Optional<List<Person>> findByFirstnameAndGender(String firstName, GenderType gender);
+	public Optional<List<Person>> getPersonListByFirstnameAndGender(String firstName, GenderType gender);
 
-	public Page<Person> findByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable);
+	public Page<Person> getPersonListByFirstnameAndGender(String firstName, GenderType gender, Pageable pageable);
 
-	public Optional<List<Person>> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Optional<List<Person>> getPersonListByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus);
 
-	public Page<Person> findByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
+	public Page<Person> getPersonListByFirstnameAndGenderAndMaritalStatus(String firstName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable);
 
-	public Optional<List<Person>> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus);
 
-	public Page<Person> findByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndMaritalStatus(String firstName, String lastName,
 			MaritalStatus maritalStatus, Pageable pageable);
 
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndGender(String firstName, String lastName,
 			GenderType gender);
 
-	public Page<Person> findByFirstnameAndLastnameAndGender(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndGender(String firstName, String lastName,
 			GenderType gender, Pageable pageable);
 
-	public Optional<List<Person>> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus);
+	public Optional<List<Person>> getPersonListByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus);
 
-	public Page<Person> findByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByGenderAndMaritalStatus(GenderType gender, MaritalStatus maritalStatus,
 			Pageable pageable);
 
-	public Optional<List<Person>> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus);
+	public Optional<List<Person>> getPersonListByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus);
 
-	public Page<Person> findByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
+	public Page<Person> getPersonListByLastnameAndMaritalStatus(String lastName, MaritalStatus maritalStatus,
 			Pageable pageable);
 
-	public Optional<List<Person>> findByLastnameAndGender(String lastName, GenderType gender);
+	public Optional<List<Person>> getPersonListByLastnameAndGender(String lastName, GenderType gender);
 
-	public Page<Person> findByLastnameAndGender(String lastName, GenderType gender, Pageable pageable);
+	public Page<Person> getPersonListByLastnameAndGender(String lastName, GenderType gender, Pageable pageable);
 
-	public Optional<List<Person>> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Optional<List<Person>> getPersonListByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus);
 
-	public Page<Person> findByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
+	public Page<Person> getPersonListByLastnameAndGenderAndMaritalStatus(String lastName, GenderType gender,
 			MaritalStatus maritalStatus, Pageable pageable);
 
-	public Optional<List<Person>> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Optional<List<Person>> getPersonListByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus);
 
-	public Page<Person> findByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
+	public Page<Person> getPersonListByFirstnameAndLastnameAndGenderAndMaritalStatus(String firstName, String lastName,
 			GenderType gender, MaritalStatus maritalStatus, Pageable page);
 	/*
 	 * *****************************************************************************
