@@ -1,7 +1,20 @@
 package org.fourstack.infomanagement.codetype;
 
+import org.fourstack.infomanagement.exceptionhandling.InfoManagementExceptionHandler;
+import org.fourstack.infomanagement.payload.ErrorResponse;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Enum {@code CustErrCodesAndMsgs} defines the Custom Error Codes and Messages
+ * related to the application. Whenever the Exceptions handled by using
+ * {@link InfoManagementExceptionHandler}, then the Custom Error codes and
+ * Messages are used to produce {@link ErrorResponse} and sent to the client for
+ * better understanding of Exceptions occurred in the application.
+ * 
+ * @author Manjunath HM
+ *
+ */
 public enum CustErrCodesAndMsgs {
 
 	@JsonProperty("INFO_400")
