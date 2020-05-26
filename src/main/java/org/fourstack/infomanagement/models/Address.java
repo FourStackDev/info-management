@@ -43,6 +43,10 @@ public class Address implements Serializable {
 	@Column(name = "address_line2", columnDefinition = "TEXT")
 	@JsonProperty(value = "addressLine2")
 	private String addressLine2;
+	
+	@Column(name = "taluk")
+	@JsonProperty(value = "taluk")
+	private String taluk;
 
 	@Column(name = "ditrict")
 	@JsonProperty(value = "ditrict")
@@ -72,17 +76,19 @@ public class Address implements Serializable {
 	 * @param doorNo       door number
 	 * @param addressLine1 To specify the street, cross, main road details
 	 * @param addressLine2 To specify the area of locality, taluk, etc..
+	 * @param taluk        Taluk name
 	 * @param district     District name
 	 * @param state        State name
 	 * @param country      Country name
 	 * @param pincode      pincode of the address
 	 */
-	public Address(String doorNo, String addressLine1, String addressLine2, String district, String state,
+	public Address(String doorNo, String addressLine1, String addressLine2, String taluk, String district, String state,
 			String country, String pincode) {
 		super();
 		this.doorNo = doorNo;
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
+		this.taluk = taluk;
 		this.district = district;
 		this.state = state;
 		this.country = country;
@@ -153,10 +159,18 @@ public class Address implements Serializable {
 		this.pincode = pincode;
 	}
 
+	public String getTaluk() {
+		return taluk;
+	}
+
+	public void setTaluk(String taluk) {
+		this.taluk = taluk;
+	}
+
 	@Override
 	public String toString() {
 		return "Address [doorNo=" + doorNo + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2
-				+ ", district=" + district + ", state=" + state + ", country=" + country + ", pincode=" + pincode + "]";
+				+ ", taluk=" + taluk + ", district=" + district + ", state=" + state + ", country=" + country
+				+ ", pincode=" + pincode + "]";
 	}
-
 }
