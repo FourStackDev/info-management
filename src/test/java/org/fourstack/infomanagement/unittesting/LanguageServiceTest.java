@@ -13,6 +13,7 @@ import org.fourstack.infomanagement.models.Language;
 import org.fourstack.infomanagement.repositories.LanguageRepository;
 import org.fourstack.infomanagement.services.LanguageServiceImpl;
 import org.fourstack.infomanagement.utils.CommonUtils;
+import org.fourstack.infomanagement.utils.EntityGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -29,13 +30,10 @@ public class LanguageServiceTest {
 
 	@InjectMocks
 	private LanguageServiceImpl languageService;
-	
-	private ObjectMapper mapper;
 
 	@BeforeEach
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
-		mapper = new ObjectMapper();
 	}
 
 	@Test
@@ -43,41 +41,53 @@ public class LanguageServiceTest {
 		Long id = CommonUtils.getRandomLong();
 
 		// Do mock for the repository method
-		when(repository.findById(id)).thenReturn(Optional.of(getLanguageForId(id)));
+		when(repository.findById(id)).thenReturn(Optional.of(EntityGenerator.getLanguageForId(id)));
 
 		// call the language service to get optional container of language(should return
 		// the mock response only)
 		Optional<Language> optional = languageService.getLanguageById(id);
 
-		//Verify the results
+		// Verify the results
 		assertEquals(id, optional.get().getId());
 		assertEquals("Kannada", optional.get().getName());
 	}
-	
+
 	@Test
 	public void test_getAllLanguages() {
 		// Do mock for the repository method
-		when(repository.findAll()).thenReturn(getLanguageList());
-		
+		when(repository.findAll()).thenReturn(EntityGenerator.getLanguageList());
+
+		// call service to get Languages list
 		List<Language> allLanguages = languageService.getAllLanguages();
+
+		// verify the results
 		assertEquals(4, allLanguages.size());
 	}
 
-	private Language getLanguageForId(Long id) {
-		Language language = new Language("Kannada", Proficiency.EXPERT,
-				Arrays.asList(FluencyType.SPEAK, FluencyType.READ, FluencyType.WRITE));
-		language.setId(id);
-		return language;
+	@Test
+	public void test_saveLanguage() {
+		Language language = EntityGenerator.getLanguageForId(CommonUtils.getRandomLong());
+		language.setId(null);
+		// Do mock for the repository method
+		when(repository.save(language)).thenReturn(language);
+
+		// call service to save the language.
+		Language savedLanguage = languageService.saveLanguage(language);
+		
+		// verify the result
+		assertEquals(language.getProficiency(), savedLanguage.getProficiency());
 	}
 	
-	private List<Language> getLanguageList() {
-		Language[] languages = {};
-		try {
-			languages = mapper.readValue(CommonUtils.getFileContent("language-list.json"), Language[].class);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
+	@Test
+	public void test_saveAllLanguages() {
+		List<Language> languageList = EntityGenerator.getLanguageList();
+		//mock the repository method
+		when(repository.saveAll(languageList)).thenReturn(languageList);
 		
-		return Arrays.asList(languages);
+		//call the service method to save all entities
+		List<Language> savedLanguages = languageService.saveAllLanguages(languageList);
+		
+		//verify the result
+		assertEquals(languageList.size(), savedLanguages.size());
 	}
 }
