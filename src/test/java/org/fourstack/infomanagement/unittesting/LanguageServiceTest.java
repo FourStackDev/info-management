@@ -44,7 +44,7 @@ public class LanguageServiceTest {
 		Long id = CommonUtils.getRandomLong();
 
 		// Do mock for the repository method
-		when(repository.findById(id)).thenReturn(Optional.of(EntityGenerator.getLanguageForId(id)));
+		when(repository.findById(id)).thenReturn(Optional.of(EntityGenerator.getLanguage(id)));
 
 		// call the language service to get optional container of language(should return
 		// the mock response only)
@@ -69,7 +69,7 @@ public class LanguageServiceTest {
 
 	@Test
 	public void test_saveLanguage() {
-		Language language = EntityGenerator.getLanguageForId(CommonUtils.getRandomLong());
+		Language language = EntityGenerator.getLanguage(CommonUtils.getRandomLong());
 		language.setId(null);
 		// Do mock for the repository method
 		when(repository.save(language)).thenReturn(language);
