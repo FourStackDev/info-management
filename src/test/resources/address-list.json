@@ -1,0 +1,35 @@
+[
+   {
+      "id":1,
+      "door_number":"#44",
+      "addressLine1":"1st cross, 3rd main",
+      "addressLine2":"BTM 2nd Stage",
+      "taluk":"Bengaluru South",
+      "ditrict":"Bengaluru",
+      "state":"Karnataka",
+      "country":"India",
+      "pincode":"560076"
+   },
+   {
+      "id":2,
+      "door_number":"#101",
+      "addressLine1":"Renuka Residency, PWD main Road",
+      "addressLine2":"Akash Nagar, B Narayanapura",
+      "taluk":"Bengaluru South",
+      "ditrict":"Bengaluru",
+      "state":"Karnataka",
+      "country":"India",
+      "pincode":"560016"
+   },
+   {
+      "id":3,
+      "door_number":"#138",
+      "addressLine1":"3rd main road",
+      "addressLine2":"Rajajinagar 5th block",
+      "taluk":"Bengaluru North",
+      "ditrict":"Bengaluru",
+      "state":"Karnataka",
+      "country":"India",
+      "pincode":"560014"
+   }
+]
