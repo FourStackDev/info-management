@@ -17,6 +17,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+/**
+ * Unit Test class to support the test cases for LanguageService. Class contains
+ * the test cases related to the class LanguageService. As this is a unit test
+ * case class, we will mock the Repository layer and test only the code for
+ * Service layer.
+ * 
+ * @author Manjunath HM
+ *
+ */
 public class LanguageServiceTest {
 
 	@Mock
