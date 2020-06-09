@@ -55,16 +55,16 @@ public class AddressServiceTest {
 	public void test_getAddressById() {
 		Long id = CommonUtils.getRandomLong();
 		// mock the repository call
-		when(addressRepository.findById(id)).thenReturn(Optional.of(EntityGenerator.getAddressForId(id)));
+		when(addressRepository.findById(id)).thenReturn(Optional.of(EntityGenerator.getAddress(id)));
 
 		// call the service method
 		Optional<Address> address = addressService.getAddressById(id);
 
 		// verify the result
-		assertEquals(EntityGenerator.getAddressForId(id).getId(), address.get().getId());
-		assertEquals(EntityGenerator.getAddressForId(id).getCountry(), address.get().getCountry());
-		assertEquals(EntityGenerator.getAddressForId(id).getPincode(), address.get().getPincode());
-		assertEquals(EntityGenerator.getAddressForId(id).getState(), address.get().getState());
+		assertEquals(EntityGenerator.getAddress(id).getId(), address.get().getId());
+		assertEquals(EntityGenerator.getAddress(id).getCountry(), address.get().getCountry());
+		assertEquals(EntityGenerator.getAddress(id).getPincode(), address.get().getPincode());
+		assertEquals(EntityGenerator.getAddress(id).getState(), address.get().getState());
 	}
 	
 	@Test

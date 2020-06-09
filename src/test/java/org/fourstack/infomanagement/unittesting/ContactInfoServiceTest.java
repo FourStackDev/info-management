@@ -47,7 +47,7 @@ public class ContactInfoServiceTest {
 	@Test
 	public void test_getContactById() {
 		Long id = CommonUtils.getRandomLong();
-		ContactInfo contactInfo = EntityGenerator.getContactInfoForId(id);
+		ContactInfo contactInfo = EntityGenerator.getContactInfo(id);
 		
 		// mock the repository
 		when(contactRepository.findById(id)).thenReturn(Optional.of(contactInfo));
@@ -64,7 +64,7 @@ public class ContactInfoServiceTest {
 	
 	@Test
 	public void test_saveContact() {
-		ContactInfo contactInfo = EntityGenerator.getContactInfoForId(CommonUtils.getRandomLong());
+		ContactInfo contactInfo = EntityGenerator.getContactInfo(CommonUtils.getRandomLong());
 		
 		// mock the repository
 		when(contactRepository.save(contactInfo)).thenReturn(contactInfo);
@@ -77,5 +77,19 @@ public class ContactInfoServiceTest {
 		assertEquals(contactInfo.getPrimaryContactNum(), savedContact.getPrimaryContactNum());
 		assertEquals(contactInfo.getSecondaryContactNum(), savedContact.getSecondaryContactNum());
 		assertEquals(contactInfo.getMailId(), savedContact.getMailId());
+	}
+	
+	@Test
+	public void test_saveContacts() {
+		List<ContactInfo> contactInfoList = EntityGenerator.getContactInfoList();
+		
+		//mock the repository
+		when(contactRepository.saveAll(contactInfoList)).thenReturn(contactInfoList);
+		
+		//call the service
+		List<ContactInfo> savedContacts = contactService.saveContacts(contactInfoList);
+		
+		//verify the results
+		assertEquals(contactInfoList.size(), savedContacts.size());
 	}
 }
