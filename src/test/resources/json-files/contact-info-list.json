@@ -1,0 +1,26 @@
+[
+   {
+      "id":1,
+      "prim_contact_num":"9590788100",
+      "sec_contact_num":"8495064042",
+      "mail_id":"abc.123@gmail.com"
+   },
+   {
+      "id":2,
+      "prim_contact_num":"9590788123",
+      "sec_contact_num":"",
+      "mail_id":"def.123@gmail.com"
+   },
+   {
+      "id":3,
+      "prim_contact_num":"9845028100",
+      "sec_contact_num":"8495064532",
+      "mail_id":"xyz.123@gmail.com"
+   },
+   {
+      "id":4,
+      "prim_contact_num":"9887654321",
+      "sec_contact_num":"8976543201",
+      "mail_id":"jklm.123@gmail.com"
+   }
+]
