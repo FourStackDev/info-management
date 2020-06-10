@@ -1,0 +1,35 @@
+[
+   {
+      "project_name":"Client-project1",
+      "team_size":"5",
+      "role_played_in_project":"Senior Software Developer",
+      "start_date":"2019/06/10",
+      "end_date":"2019/12/23",
+      "project_description":"To develop Web Applications",
+      "technologies_used":[
+         {
+            "id":1,
+            "technology_name":"Java",
+            "technology_version":"1.8"
+         },
+         {
+            "id":2,
+            "technology_name":"Spring-Boot",
+            "technology_version":"2.3"
+         },
+         {
+            "id":3,
+            "technology_name":"Hibernate",
+            "technology_version":"5.3"
+         }
+      ]
+   },
+   {
+      "project_name":"Client-project2",
+      "team_size":"8",
+      "role_played_in_project":"Senior Software Developer",
+      "start_date":"2020/01/06",
+      "end_date":"2020/05/05",
+      "project_description":"To develop Web Applications"
+   }
+]
