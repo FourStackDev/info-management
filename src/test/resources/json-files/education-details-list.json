@@ -1,0 +1,26 @@
+[
+   {
+      "id":1,
+      "university_name":"VTU",
+      "college_name":"Dr. Ambedkar Institute of Technology",
+      "course_name":"B.E",
+      "year_of_passed_out":"2015",
+      "course_type":"Full Time"
+   },
+   {
+      "id":2,
+      "university_name":"KEA(Karnataka Education Autority)",
+      "college_name":"M.E.S College of Arts, Commerce and Science",
+      "course_name":"PUC",
+      "year_of_passed_out":"2010",
+      "course_type":"Full Time"
+   },
+   {
+      "id":3,
+      "university_name":"SSLC",
+      "college_name":"Vijay High School",
+      "course_name":"SSLC",
+      "year_of_passed_out":"2008",
+      "course_type":"Full Time"
+   }
+]
