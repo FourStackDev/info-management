@@ -1,0 +1,27 @@
+[
+   {
+      "id":1,
+      "technology_name":"Java",
+      "technology_version":"1.8"
+   },
+   {
+      "id":2,
+      "technology_name":"Spring-Boot",
+      "technology_version":"2.3"
+   },
+   {
+      "id":3,
+      "technology_name":"Hibernate",
+      "technology_version":"5.3"
+   },
+   {
+      "id":4,
+      "technology_name":"JSON",
+      "technology_version":"1.4"
+   },
+   {
+      "id":5,
+      "technology_name":"Postgre SQL",
+      "technology_version":"10"
+   }
+]

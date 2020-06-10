@@ -4,14 +4,17 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import org.fourstack.infomanagement.codetype.CourseType;
 import org.fourstack.infomanagement.codetype.FluencyType;
 import org.fourstack.infomanagement.codetype.GenderType;
 import org.fourstack.infomanagement.codetype.MaritalStatus;
 import org.fourstack.infomanagement.codetype.Proficiency;
 import org.fourstack.infomanagement.models.Address;
 import org.fourstack.infomanagement.models.ContactInfo;
+import org.fourstack.infomanagement.models.EducationDetail;
 import org.fourstack.infomanagement.models.Language;
 import org.fourstack.infomanagement.models.Person;
+import org.fourstack.infomanagement.models.ProfessionalSkill;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -107,6 +110,14 @@ public class EntityGenerator {
 		return address;
 	}
 
+	/**
+	 * Generates and returns list of Address Objects. The Objects will be generated
+	 * from the json file by using the Jackson Object mapper.<br/>
+	 * If json file is missing or the content inside the file is matching with the
+	 * Address object then this method generates an Exception.
+	 * 
+	 * @return List of Address Objects
+	 */
 	public static List<Address> getAddressList() {
 		Address[] addresses = {};
 		try {
@@ -171,5 +182,60 @@ public class EntityGenerator {
 		}
 
 		return Arrays.asList(persons);
+	}
+
+	public static EducationDetail getEducationDetail() {
+		EducationDetail education = new EducationDetail();
+		education.setCourseName("B.E");
+		education.setCollgeName("Dr. Ambedkar Institute of Technology");
+		education.setCourseType(CourseType.FULL_TIME);
+		education.setPassOutYear("2015");
+		education.setUniversityName("VTU(Visvesvaraya Technological University)");
+
+		return education;
+	}
+
+	public static EducationDetail getEducationDetail(Long id) {
+		EducationDetail education = getEducationDetail();
+		education.setId(id);
+		return education;
+	}
+
+	public static List<EducationDetail> getEducationDetailList() {
+		EducationDetail[] educationList = {};
+		try {
+			educationList = mapper.readValue(CommonUtils.getFileContent("json-files/education-details-list.json"),
+					EducationDetail[].class);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return Arrays.asList(educationList);
+	}
+
+	public static ProfessionalSkill getProfessionalSkill() {
+		ProfessionalSkill skill = new ProfessionalSkill();
+		skill.setName("Java");
+		skill.setProficiency(Proficiency.PROFICIENT);
+
+		return skill;
+	}
+
+	public static ProfessionalSkill getProfessionalSkill(Long id) {
+		ProfessionalSkill skill = getProfessionalSkill();
+		skill.setId(id);
+		return skill;
+	}
+
+	public static List<ProfessionalSkill> getProfessionalSkillList() {
+		ProfessionalSkill[] skills = {};
+		try {
+			skills = mapper.readValue(CommonUtils.getFileContent("json-files/professional-skills-list.json"),
+					ProfessionalSkill[].class);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return Arrays.asList(skills);
 	}
 }

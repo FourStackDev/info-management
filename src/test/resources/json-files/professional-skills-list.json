@@ -1,0 +1,27 @@
+[
+   {
+      "id":1,
+      "skill_name":"Java",
+      "proficiency":"proficient"
+   },
+   {
+      "id":2,
+      "skill_name":"Spring Boot",
+      "proficiency":"proficient"
+   },
+   {
+      "id":3,
+      "skill_name":"Hibernate",
+      "proficiency":"proficient"
+   },
+   {
+      "id":4,
+      "skill_name":"AWS",
+      "proficiency":"beginner"
+   },
+   {
+      "id":5,
+      "skill_name":"SQL",
+      "proficiency":"expert"
+   }
+]
