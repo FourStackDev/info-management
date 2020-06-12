@@ -1,0 +1,400 @@
+[
+   {
+      "personal_info":{
+         "id":1,
+         "first_name":"Manjunath",
+         "middle_name":"",
+         "last_name":"HM",
+         "birth_date":"1992/02/10",
+         "gender":"Male",
+         "father_name":"Munikrishnappa",
+         "mother_name":"Jayalakshmamma",
+         "marital_status":"Single",
+         "contact_information":{
+            "prim_contact_num":"9590788100",
+            "sec_contact_num":"8495064042",
+            "mail_id":"abc.123@gmail.com"
+         },
+         "address":{
+            "door_number":"#44",
+            "addressLine1":"1st cross, 3rd main",
+            "addressLine2":"BTM 2nd Stage",
+            "taluk":"Bengaluru South",
+            "ditrict":"Bengaluru",
+            "state":"Karnataka",
+            "country":"India",
+            "pincode":"560076"
+         },
+         "languages":[
+            {
+               "language_name":"Kannada",
+               "proficiency":"expert",
+               "fluency":[
+                  "Read",
+                  "Write",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"English",
+               "proficiency":"proficient",
+               "fluency":[
+                  "Read",
+                  "Write",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"Telugu",
+               "proficiency":"proficient",
+               "fluency":[
+                  "Read",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"Hindi",
+               "proficiency":"beginner",
+               "fluency":[
+                  "Read"
+               ]
+            }
+         ]
+      },
+      "professional_info":{
+         "id":1,
+         "total_years_of_exp":48,
+         "relevant_exp":12,
+         "current_org":"UST Global",
+         "designation":"Senior Software Developer",
+         "education_details":[
+            {
+               "id":1,
+               "university_name":"VTU",
+               "college_name":"Dr. Ambedkar Institute of Technology",
+               "course_name":"B.E",
+               "year_of_passed_out":"2015",
+               "course_type":"Full Time"
+            },
+            {
+               "id":2,
+               "university_name":"KEA(Karnataka Education Autority)",
+               "college_name":"M.E.S College of Arts, Commerce and Science",
+               "course_name":"PUC",
+               "year_of_passed_out":"2010",
+               "course_type":"Full Time"
+            },
+            {
+               "id":3,
+               "university_name":"SSLC",
+               "college_name":"Vijay High School",
+               "course_name":"SSLC",
+               "year_of_passed_out":"2008",
+               "course_type":"Full Time"
+            }
+         ],
+         "professionalSkills":[
+            {
+               "id":1,
+               "skill_name":"Java",
+               "proficiency":"proficient"
+            },
+            {
+               "id":2,
+               "skill_name":"Spring Boot",
+               "proficiency":"proficient"
+            },
+            {
+               "id":3,
+               "skill_name":"Hibernate",
+               "proficiency":"proficient"
+            },
+            {
+               "id":4,
+               "skill_name":"AWS",
+               "proficiency":"beginner"
+            },
+            {
+               "id":5,
+               "skill_name":"SQL",
+               "proficiency":"expert"
+            }
+         ],
+         "workExperiences":[
+            {
+               "company_name":"UST",
+               "company_joined_date":"2019/06/03",
+               "company_exit_date":null,
+               "is_current_org":true,
+               "projects":[
+                  {
+                     "project_name":"Client-project1",
+                     "team_size":"5",
+                     "role_played_in_project":"Senior Software Developer",
+                     "start_date":"2019/06/10",
+                     "end_date":"2019/12/23",
+                     "project_description":"To develop Web Applications",
+                     "technologies_used":[
+                        {
+                           "id":1,
+                           "technology_name":"Java",
+                           "technology_version":"1.8"
+                        },
+                        {
+                           "id":2,
+                           "technology_name":"Spring-Boot",
+                           "technology_version":"2.3"
+                        },
+                        {
+                           "id":3,
+                           "technology_name":"Hibernate",
+                           "technology_version":"5.3"
+                        }
+                     ]
+                  },
+                  {
+                     "project_name":"Client-project2",
+                     "team_size":"8",
+                     "role_played_in_project":"Senior Software Developer",
+                     "start_date":"2020/01/06",
+                     "end_date":"2020/05/05",
+                     "project_description":"To develop Web Applications"
+                  }
+               ]
+            },
+            {
+               "company_name":"Synchronoss Technologies India Pvt Ltd",
+               "company_joined_date":"2016/05/05",
+               "company_exit_date":"2019/05/23",
+               "is_current_org":false,
+               "projects":[
+                  {
+                     "project_name":"Client-project1",
+                     "team_size":"5",
+                     "role_played_in_project":"Software Developer",
+                     "start_date":"2016/05/05",
+                     "end_date":"2019/05/23",
+                     "project_description":"To develop Web Applications",
+                     "technologies_used":[
+                        {
+                           "id":1,
+                           "technology_name":"Java",
+                           "technology_version":"1.8"
+                        },
+                        {
+                           "id":4,
+                           "technology_name":"J2EE",
+                           "technology_version":"6"
+                        },
+                        {
+                           "id":5,
+                           "technology_name":"XML",
+                           "technology_version":"1.0"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   {
+      "personal_info":{
+         "id":2,
+         "first_name":"Manjunath",
+         "middle_name":"",
+         "last_name":"HM",
+         "birth_date":"1992/02/10",
+         "gender":"Male",
+         "father_name":"Munikrishnappa",
+         "mother_name":"Jayalakshmamma",
+         "marital_status":"Single",
+         "contact_information":{
+            "prim_contact_num":"9590788100",
+            "sec_contact_num":"8495064042",
+            "mail_id":"abc.123@gmail.com"
+         },
+         "address":{
+            "door_number":"#44",
+            "addressLine1":"1st cross, 3rd main",
+            "addressLine2":"BTM 2nd Stage",
+            "taluk":"Bengaluru South",
+            "ditrict":"Bengaluru",
+            "state":"Karnataka",
+            "country":"India",
+            "pincode":"560076"
+         },
+         "languages":[
+            {
+               "language_name":"Kannada",
+               "proficiency":"expert",
+               "fluency":[
+                  "Read",
+                  "Write",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"English",
+               "proficiency":"proficient",
+               "fluency":[
+                  "Read",
+                  "Write",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"Telugu",
+               "proficiency":"proficient",
+               "fluency":[
+                  "Read",
+                  "Speak"
+               ]
+            },
+            {
+               "language_name":"Hindi",
+               "proficiency":"beginner",
+               "fluency":[
+                  "Read"
+               ]
+            }
+         ]
+      },
+      "professional_info":{
+         "id":2,
+         "total_years_of_exp":48,
+         "relevant_exp":12,
+         "current_org":"UST Global",
+         "designation":"Senior Software Developer",
+         "education_details":[
+            {
+               "id":1,
+               "university_name":"VTU",
+               "college_name":"Dr. Ambedkar Institute of Technology",
+               "course_name":"B.E",
+               "year_of_passed_out":"2015",
+               "course_type":"Full Time"
+            },
+            {
+               "id":2,
+               "university_name":"KEA(Karnataka Education Autority)",
+               "college_name":"M.E.S College of Arts, Commerce and Science",
+               "course_name":"PUC",
+               "year_of_passed_out":"2010",
+               "course_type":"Full Time"
+            },
+            {
+               "id":3,
+               "university_name":"SSLC",
+               "college_name":"Vijay High School",
+               "course_name":"SSLC",
+               "year_of_passed_out":"2008",
+               "course_type":"Full Time"
+            }
+         ],
+         "professionalSkills":[
+            {
+               "id":1,
+               "skill_name":"Java",
+               "proficiency":"proficient"
+            },
+            {
+               "id":2,
+               "skill_name":"Spring Boot",
+               "proficiency":"proficient"
+            },
+            {
+               "id":3,
+               "skill_name":"Hibernate",
+               "proficiency":"proficient"
+            },
+            {
+               "id":4,
+               "skill_name":"AWS",
+               "proficiency":"beginner"
+            },
+            {
+               "id":5,
+               "skill_name":"SQL",
+               "proficiency":"expert"
+            }
+         ],
+         "workExperiences":[
+            {
+               "company_name":"UST",
+               "company_joined_date":"2019/06/03",
+               "company_exit_date":null,
+               "is_current_org":true,
+               "projects":[
+                  {
+                     "project_name":"Client-project1",
+                     "team_size":"5",
+                     "role_played_in_project":"Senior Software Developer",
+                     "start_date":"2019/06/10",
+                     "end_date":"2019/12/23",
+                     "project_description":"To develop Web Applications",
+                     "technologies_used":[
+                        {
+                           "id":1,
+                           "technology_name":"Java",
+                           "technology_version":"1.8"
+                        },
+                        {
+                           "id":2,
+                           "technology_name":"Spring-Boot",
+                           "technology_version":"2.3"
+                        },
+                        {
+                           "id":3,
+                           "technology_name":"Hibernate",
+                           "technology_version":"5.3"
+                        }
+                     ]
+                  },
+                  {
+                     "project_name":"Client-project2",
+                     "team_size":"8",
+                     "role_played_in_project":"Senior Software Developer",
+                     "start_date":"2020/01/06",
+                     "end_date":"2020/05/05",
+                     "project_description":"To develop Web Applications"
+                  }
+               ]
+            },
+            {
+               "company_name":"Synchronoss Technologies India Pvt Ltd",
+               "company_joined_date":"2016/05/05",
+               "company_exit_date":"2019/05/23",
+               "is_current_org":false,
+               "projects":[
+                  {
+                     "project_name":"Client-project1",
+                     "team_size":"5",
+                     "role_played_in_project":"Software Developer",
+                     "start_date":"2016/05/05",
+                     "end_date":"2019/05/23",
+                     "project_description":"To develop Web Applications",
+                     "technologies_used":[
+                        {
+                           "id":1,
+                           "technology_name":"Java",
+                           "technology_version":"1.8"
+                        },
+                        {
+                           "id":4,
+                           "technology_name":"J2EE",
+                           "technology_version":"6"
+                        },
+                        {
+                           "id":5,
+                           "technology_name":"XML",
+                           "technology_version":"1.0"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   }
+]
