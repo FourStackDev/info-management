@@ -132,7 +132,7 @@ public class WorkExperience implements Serializable {
 		return isCurrentOrganization;
 	}
 
-	public void setCurrentOrganization(boolean isCurrentOrganization) {
+	public void setIsCurrentOrganization(boolean isCurrentOrganization) {
 		this.isCurrentOrganization = isCurrentOrganization;
 	}
 
