@@ -130,7 +130,8 @@ public class EntityGenerator {
 	public static List<Address> getAddressList() {
 		Address[] addresses = {};
 		try {
-			addresses = mapper.readValue(CommonUtils.getFileContent("json-files/address-list.json"), Address[].class);
+			addresses = mapper.readValue(CommonUtils.getFileContentUsingResource("json-files/address-list.json",
+					EntityGenerator.class.getClassLoader()), Address[].class);
 		} catch (JsonProcessingException e) {
 			logger.error("Exception Occurred while generating the List of Address Objects", e);
 		}
