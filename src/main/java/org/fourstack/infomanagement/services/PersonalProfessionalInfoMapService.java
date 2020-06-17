@@ -17,7 +17,11 @@ public interface PersonalProfessionalInfoMapService {
 	
 	public PersonalProfessionalInfoPayload savePayload(PersonalProfessionalInfoPayload payload);
 	
-	public Optional<PersonalProfessionalInfoMap> getPayloadByPersonId(Long personId);
+	public Optional<PersonalProfessionalInfoPayload> getPayloadByPersonId(Long personId);
 	
-	public Optional<PersonalProfessionalInfoMap> getPayloadByProfessionalId(Long professionalId);
+	public Optional<PersonalProfessionalInfoPayload> getPayloadByProfessionalId(Long professionalId);
+
+	public Optional<PersonalProfessionalInfoMap> getInfoMapByPersonId(Long personId);
+
+	public Optional<PersonalProfessionalInfoMap> getInfoMapByProfessionalId(Long professionalId);
 }

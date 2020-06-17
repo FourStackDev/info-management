@@ -41,11 +41,14 @@ public class PersonalProfessionalInfoMapServiceImpl implements PersonalProfessio
 
 	@Override
 	public PersonalProfessionalInfoPayload savePayload(PersonalProfessionalInfoPayload payload) {
+		// save the personal information
 		Person person = payload.getPerson() != null ? personService.savePerson(payload.getPerson()) : null;
+		// save professional information
 		ProfessionalInfo profession = payload.getProfessionalInfo() != null
 				? professionalService.saveProfessionalInfo(payload.getProfessionalInfo())
 				: null;
 
+		/* fetch PersonalProfessionalInfoMap by mapping both personal and professional Info Objects. */
 		PersonalProfessionalInfoMap infoMap = mapPersonAndProfessionInfo(person, profession);
 		
 		mapRepository.save(infoMap);
@@ -56,13 +59,23 @@ public class PersonalProfessionalInfoMapServiceImpl implements PersonalProfessio
 	}
 
 	@Override
-	public Optional<PersonalProfessionalInfoMap> getPayloadByPersonId(Long personId) {
+	public Optional<PersonalProfessionalInfoMap> getInfoMapByPersonId(Long personId) {
 		return mapRepository.findByPersonId(personId);
 	}
 
 	@Override
-	public Optional<PersonalProfessionalInfoMap> getPayloadByProfessionalId(Long professionalId) {
+	public Optional<PersonalProfessionalInfoMap> getInfoMapByProfessionalId(Long professionalId) {
 		return mapRepository.findByProfessionalId(professionalId);
+	}
+	
+	@Override
+	public Optional<PersonalProfessionalInfoPayload> getPayloadByPersonId(Long personId) {
+		return null;
+	}
+
+	@Override
+	public Optional<PersonalProfessionalInfoPayload> getPayloadByProfessionalId(Long professionalId) {
+		return null;
 	}
 	
 	/**
@@ -84,9 +97,9 @@ public class PersonalProfessionalInfoMapServiceImpl implements PersonalProfessio
 		// table.
 		PersonalProfessionalInfoMap infoMap2 = null;
 		if (person != null)
-			infoMap2 = getPayloadByPersonId(person.getId()).orElse(null);
+			infoMap2 = getInfoMapByPersonId(person.getId()).orElse(null);
 		if (infoMap2 == null && profession != null)
-			infoMap2 = getPayloadByProfessionalId(profession.getId()).orElse(null);
+			infoMap2 = getInfoMapByProfessionalId(profession.getId()).orElse(null);
 
 		// Fetch Mapping information and Set if already Exists
 		if (infoMap2 != null)
@@ -95,5 +108,4 @@ public class PersonalProfessionalInfoMapServiceImpl implements PersonalProfessio
 		// return final Mapping value
 		return infoMap;
 	}
-
 }
