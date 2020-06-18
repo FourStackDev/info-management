@@ -1,6 +1,5 @@
 package org.fourstack.infomanagement.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -44,10 +43,9 @@ public class TechnologyServiceImpl implements TechnologyService {
 
 	@Override
 	public List<Technology> saveTechnologiesBasedOnNameAndVersion(List<Technology> technologies) {
-		List<Technology> updatedTechnologies = new ArrayList<>();
-		updatedTechnologies = technologies.stream()
-										  .map(technology -> saveTechnology(technology))
-										  .collect(Collectors.toList());
+		List<Technology> updatedTechnologies = technologies.stream()
+				                                           .map(technology -> saveTechnology(technology))
+				                                           .collect(Collectors.toList());
 		return updatedTechnologies;
 	}
 }
