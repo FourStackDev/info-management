@@ -31,4 +31,9 @@ public class ProfessionalSkillServiceImpl implements ProfessionalSkillService {
 		return professionalSkillRepository.save(professionalSkill);
 	}
 
+	@Override
+	public List<ProfessionalSkill> saveAllProfessionalSkills(List<ProfessionalSkill> professionalSkills) {
+		return professionalSkillRepository.saveAll(professionalSkills);
+	}
+
 }
