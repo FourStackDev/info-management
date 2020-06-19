@@ -17,6 +17,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ContactInfoServiceTest {
 	
 	@Mock
@@ -71,6 +74,7 @@ public class ContactInfoServiceTest {
 		
 		// call the service
 		ContactInfo savedContact = contactService.saveContact(contactInfo);
+		log.info("Saved ContactInfo : "+savedContact);
 		
 		// verify the results
 		assertEquals(contactInfo.getId(), savedContact.getId());

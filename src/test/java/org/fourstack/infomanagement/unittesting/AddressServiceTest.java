@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Unit Test class to support the test cases for AddressService. Class contains
@@ -27,6 +29,7 @@ import org.mockito.MockitoAnnotations;
  *
  */
 public class AddressServiceTest {
+	private static Logger logger = LoggerFactory.getLogger(AddressServiceTest.class);
 
 	@Mock
 	private AddressRepository addressRepository;
@@ -46,6 +49,7 @@ public class AddressServiceTest {
 
 		// call the service layer
 		List<Address> addressList = addressService.getAllAddresses();
+		logger.info("AddresList from Service Layer are: "+addressList);
 
 		// verify the result
 		assertEquals(EntityGenerator.getAddressList().size(), addressList.size());
@@ -76,6 +80,8 @@ public class AddressServiceTest {
 		
 		// call the service method
 		Address savedAddress = addressService.saveAddress(address);
+		
+		logger.info("Saved Address is: "+savedAddress);
 		
 		// verify the results
 		assertEquals(address.getDoorNo(), savedAddress.getDoorNo());
