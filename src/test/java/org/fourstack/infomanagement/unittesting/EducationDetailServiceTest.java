@@ -16,12 +16,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Unit TestCase Class used to Test the {@link EducationDetailService}.
  * 
  * @author Manjunath HM
  *
  */
+@Slf4j
 public class EducationDetailServiceTest {
 
 	@Mock
@@ -57,8 +60,14 @@ public class EducationDetailServiceTest {
 
 		// call the service layer
 		EducationDetail savedEducationDetail = educationDetailService.saveEducationDetail(educationDetail);
+		log.info("Saved EducationDetail: "+savedEducationDetail);
 
 		// verify the results
+		assertEquals(educationDetail.getCollgeName(), savedEducationDetail.getCollgeName());
+		assertEquals(educationDetail.getCourseName(), savedEducationDetail.getCourseName());
+		assertEquals(educationDetail.getCourseType(), savedEducationDetail.getCourseType());
+		assertEquals(educationDetail.getPassOutYear(), savedEducationDetail.getPassOutYear());
+		assertEquals(educationDetail.getUniversityName(), savedEducationDetail.getUniversityName());
 		assertEquals(educationDetail, savedEducationDetail);
 	}
 

@@ -18,6 +18,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Unit TestCase Class used to Test the {@link TechnologyService}. Test class
  * will mock the {@link TechnologyRepository} and mock results will be returned
@@ -26,6 +28,7 @@ import org.mockito.MockitoAnnotations;
  * @author Manjunath HM
  *
  */
+@Slf4j
 public class TechnologyServiceTest {
 	@Mock
 	private TechnologyRepository technologyRepository;
@@ -80,6 +83,7 @@ public class TechnologyServiceTest {
 
 		// call the Service layer method
 		Technology savedTechnology = technologyService.saveTechnology(mockTechnology);
+		log.info("Saved Technology: "+savedTechnology);
 
 		// verify the results
 		assertEquals(mockTechnology.getName(), savedTechnology.getName());
@@ -89,7 +93,7 @@ public class TechnologyServiceTest {
 
 	@Test
 	public void test_findTechnologyByNameAndVersion() {
-		Technology mockTechnology = EntityGenerator.getTechnology();
+		Technology mockTechnology = EntityGenerator.getTechnology("Angular", "8");
 
 		// mock the repository Layer
 		when(technologyRepository.findByNameAndVersion(mockTechnology.getName(), mockTechnology.getVersion()))

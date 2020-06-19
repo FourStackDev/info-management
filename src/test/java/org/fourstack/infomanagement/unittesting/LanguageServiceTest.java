@@ -17,6 +17,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Unit Test class to support the test cases for LanguageService. Class contains
  * the test cases related to the class LanguageService. As this is a unit test
@@ -26,6 +28,7 @@ import org.mockito.MockitoAnnotations;
  * @author Manjunath HM
  *
  */
+@Slf4j
 public class LanguageServiceTest {
 
 	@Mock
@@ -42,9 +45,10 @@ public class LanguageServiceTest {
 	@Test
 	public void test_getLanguageById() {
 		Long id = CommonUtils.getRandomLong();
+		Language mockLanguage = EntityGenerator.getLanguage(id);
 
 		// Do mock for the repository method
-		when(repository.findById(id)).thenReturn(Optional.of(EntityGenerator.getLanguage(id)));
+		when(repository.findById(id)).thenReturn(Optional.of(mockLanguage));
 
 		// call the language service to get optional container of language(should return
 		// the mock response only)
@@ -52,19 +56,23 @@ public class LanguageServiceTest {
 
 		// Verify the results
 		assertEquals(id, optional.get().getId());
-		assertEquals("Kannada", optional.get().getName());
+		assertEquals(mockLanguage.getName(), optional.get().getName());
+		assertEquals(mockLanguage.getFluency(), optional.get().getFluency());
+		assertEquals(mockLanguage.getProficiency(), optional.get().getProficiency());
 	}
 
 	@Test
 	public void test_getAllLanguages() {
+		List<Language> mockLanguageList = EntityGenerator.getLanguageList();
 		// Do mock for the repository method
-		when(repository.findAll()).thenReturn(EntityGenerator.getLanguageList());
+		when(repository.findAll()).thenReturn(mockLanguageList);
 
 		// call service to get Languages list
 		List<Language> allLanguages = languageService.getAllLanguages();
 
 		// verify the results
-		assertEquals(4, allLanguages.size());
+		assertEquals(mockLanguageList.size(), allLanguages.size());
+		assertEquals(mockLanguageList, allLanguages);
 	}
 
 	@Test
@@ -76,9 +84,13 @@ public class LanguageServiceTest {
 
 		// call service to save the language.
 		Language savedLanguage = languageService.saveLanguage(language);
+		log.info("Saved Language :"+savedLanguage);
 		
 		// verify the result
 		assertEquals(language.getProficiency(), savedLanguage.getProficiency());
+		assertEquals(language.getFluency(), savedLanguage.getFluency());
+		assertEquals(language.getName(), savedLanguage.getName());
+		assertEquals(language, savedLanguage);
 	}
 	
 	@Test
@@ -92,5 +104,6 @@ public class LanguageServiceTest {
 		
 		//verify the result
 		assertEquals(languageList.size(), savedLanguages.size());
+		assertEquals(languageList, savedLanguages);
 	}
 }

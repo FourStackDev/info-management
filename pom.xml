@@ -30,7 +30,7 @@
 			<timezone>Asia/Kolkata</timezone>
 		</developer>
 	</developers>
-	
+
 	<!-- SCM (github) Connection Details -->
 	<scm>
 		<connection>scm:git:https://github.com/FourStackDev/info-management</connection>
@@ -46,6 +46,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- Lombok Dependency -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<dependency>

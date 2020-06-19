@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 import java.util.Optional;
 
+import org.fourstack.infomanagement.codetype.Proficiency;
 import org.fourstack.infomanagement.models.ProfessionalSkill;
 import org.fourstack.infomanagement.repositories.ProfessionalSkillRepository;
 import org.fourstack.infomanagement.services.ProfessionalSkillService;
@@ -18,6 +19,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Unit TestCase Class used to Test the {@link ProfessionalSkillService}. Test
  * class will mock the {@link ProfessionalSkillRepository} and mock results will
@@ -26,6 +29,7 @@ import org.mockito.MockitoAnnotations;
  * @author Manjunath HM
  *
  */
+@Slf4j
 public class ProfessionalSkillServiceTest {
 
 	@Mock
@@ -74,7 +78,7 @@ public class ProfessionalSkillServiceTest {
 
 	@Test
 	public void test_saveProfessionalSkill() {
-		ProfessionalSkill mockProfessionalSkill = EntityGenerator.getProfessionalSkill();
+		ProfessionalSkill mockProfessionalSkill = EntityGenerator.getProfessionalSkill("Angular", Proficiency.BEGINNER);
 
 		// mock the repository
 		when(professionalSkillRepository.save(mockProfessionalSkill)).thenReturn(mockProfessionalSkill);
@@ -82,6 +86,7 @@ public class ProfessionalSkillServiceTest {
 		// call the service method
 		ProfessionalSkill savedProfessionalSkill = professionalSkillService
 				.saveProfessionalSkill(mockProfessionalSkill);
+		log.info("Saved ProfessionalSkill: " + savedProfessionalSkill);
 
 		// verify the result
 		assertEquals(mockProfessionalSkill.getName(), savedProfessionalSkill.getName());
